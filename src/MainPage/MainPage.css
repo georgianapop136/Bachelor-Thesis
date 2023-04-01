@@ -1,0 +1,22 @@
+.mainPageContainer {
+    display: flex;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.mainPageNavigation {
+    width: 230px;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.mainPageContent{
+   background-color:  #C9E2E2;
+    width: 100%;
+}
+
+.navigationButton{
+    width: 140px;
+}

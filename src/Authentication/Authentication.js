@@ -1,7 +1,9 @@
 import {useEffect} from "react";
 import "./Authentication.css";
+import {useNavigate} from "react-router";
 
 function Authentication() {
+    const navigate = useNavigate();
     useEffect(() => {
         const signUpButton = document.getElementById("signUp");
         const signInButton = document.getElementById("signIn");
@@ -28,6 +30,11 @@ function Authentication() {
         });
     }, [])
 
+
+    function handleClick() {
+        navigate("/main");
+    }
+
     return (
         <div className="container" id="container">
             <div className="form-container sign-up-container">
@@ -46,7 +53,7 @@ function Authentication() {
                         <input type="password" required/>
                         <label>Password</label>
                     </div>
-                    <button onClick="return false;">Sign Up</button>
+                    <button onClick={handleClick}>Sign Up</button>
                 </form>
             </div>
             <div className="form-container sign-in-container">
@@ -62,7 +69,7 @@ function Authentication() {
                         <label>Password</label>
                     </div>
                     <a href="#">Forgot your password?</a>
-                    <button onClick="return false;">Sign In</button>
+                    <button onClick={handleClick}>Sign In</button>
                 </form>
             </div>
             <div className="overlay-container">
@@ -81,4 +88,5 @@ function Authentication() {
             </div>
         </div>)
 }
+
 export default Authentication;

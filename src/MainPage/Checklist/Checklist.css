@@ -1,0 +1,38 @@
+.checkListContainer {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.addTaskContainer {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.checkListTaskInput {
+    width: 500px !important;
+    height: 30px !important;
+}
+
+.checkListMonthSelector {
+    width: 150px !important;
+}
+
+.checkListTaskStyle{
+    height: 50px;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 30px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.checkListTasksContainer{
+    width: 80%;
+}
