@@ -2,8 +2,9 @@ import {useEffect} from "react";
 import "./Authentication.css";
 import {useNavigate} from "react-router";
 
-function Authentication() {
+const Authentication = () => {
     const navigate = useNavigate();
+
     useEffect(() => {
         const signUpButton = document.getElementById("signUp");
         const signInButton = document.getElementById("signIn");
@@ -31,7 +32,7 @@ function Authentication() {
     }, [])
 
 
-    function handleClick() {
+    const handleClick = () => {
         navigate("/main");
     }
 

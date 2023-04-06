@@ -3,20 +3,24 @@ import {Button} from "@mui/material";
 import {useState} from "react";
 import Checklist from "./Checklist/Checklist";
 import User from "./User/User";
+import Budget from "./Budget/Budget";
+import Invitation from "./Invitation/Invitation";
 
-function MainPage() {
-    const [selectedOption, setSelectedOption] = useState(2);
+const MainPage = () => {
+    const [selectedOption, setSelectedOption] = useState(5);
 
-    function getContent() {
+    const getContent = () => {
         switch (selectedOption) {
             case 1:
                 return "Overview";
             case 2:
                 return <Checklist/>;
             case 3:
-                return "Budget";
+                return <Budget/>;
             case 4:
                 return "Seating";
+            case 5:
+                return <Invitation/>;
             default:
                 return "Overview";
         }
@@ -45,6 +49,11 @@ function MainPage() {
                             setSelectedOption(4)
                         }}
                         variant={selectedOption === 4 ? "contained" : "outlined"}>Seating</Button>
+                <Button className="navigationButton"
+                        onClick={() => {
+                            setSelectedOption(5)
+                        }}
+                        variant={selectedOption === 5 ? "contained" : "outlined"}>Invitation</Button>
             </div>
             <div className="mainPageContent">
                 <div><User/></div>

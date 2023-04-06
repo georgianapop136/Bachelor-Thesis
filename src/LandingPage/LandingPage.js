@@ -4,14 +4,14 @@ import Rellax from "rellax";
 import {Button} from "@mui/material";
 import {useNavigate, useNavigation} from "react-router";
 
-function LandingPage() {
+const LandingPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
         new Rellax(".rellax");
     }, [])
 
-    function handleClick(){
+    const handleClick = () => {
         navigate("/authentication");
     }
 

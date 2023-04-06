@@ -1,0 +1,33 @@
+.invitationContainer {
+    display: flex;
+    justify-content: center;
+
+}
+
+.invitationBuilder {
+    width: 900px;
+    height: 500px;
+    display: flex;
+    background-color: white;
+    border-radius:20px;
+}
+
+.invitationCustomizer {
+    width: 400px;
+    height: 100%;
+    background-color: #F0F0F0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.invitationLook {
+    width: 600px;
+    height: 100%;
+    background-color: white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}

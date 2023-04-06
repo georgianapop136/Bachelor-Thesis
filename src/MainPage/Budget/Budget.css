@@ -1,0 +1,51 @@
+.BudgetContainer {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.BudgetEdit {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.TextFieldWrapper {
+    height: 20px;
+}
+
+.BudgetForm {
+    display: flex;
+    gap: 25px;
+}
+
+.addExpenseContainer {
+    display: flex;
+    gap: 20px;
+}
+
+.budgetExpenseInput {
+    width: 350px !important;
+    height: 10px !important;
+}
+
+.budgetExpenseStyle {
+    height: 30px;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 30px;
+    padding: 5px 20px 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.budgetExpenseContainer {
+    width: 80%;
+}
+
+.budgetExpenseName{
+    width: 70%;
+}
