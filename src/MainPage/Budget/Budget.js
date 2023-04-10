@@ -167,6 +167,7 @@ const Budget = () => {
                     id="outlined-basic"
                     label="Cost"
                     value={cost}
+                    type="number"
                     variant="outlined"/>
 
 

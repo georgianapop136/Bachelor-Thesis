@@ -5,6 +5,7 @@ import {Route, BrowserRouter as Router, Routes} from "react-router-dom";
 import Authentication from "./Authentication/Authentication";
 import MainPage from "./MainPage/MainPage";
 import {createTheme, ThemeProvider} from "@mui/material";
+import RSVP from "./RSVP/RSVP";
 
 const theme = createTheme({
     palette: {
@@ -27,6 +28,7 @@ const App = () => {
                     <Route exact path="/authentication" element={<Authentication/>}/>
                     <Route exact path="/" element={<LandingPage/>}/>
                     <Route exact path="/main" element={<MainPage/>}/>
+                    <Route exact path="/RSVP" element={<RSVP/>}/>
                 </Routes>
             </Router>
         </ThemeProvider>
