@@ -20,14 +20,9 @@ const LandingPage = () => {
     }
 
     return (
-        <div>
-            <section className="section section-top">
-                <div className="content rellax" data-rellax-speed="5">
-                    <h1>Don't just start. Continue. Ship. Repeat.</h1>
-                    <Button onClick={handleClick}>Join us!</Button>
-                </div>
-            </section>
-            <div id="app" className="landingPageContainer">
+        <div className="landingPageContainer">
+            <div className="landingPageTitle">Title</div>
+            <div id="app" className="landingPageCards">
                 <Card
                     dataImage="https://images.unsplash.com/photo-1479660656269-197ebb83b540?dpr=2&auto=compress,format&fit=crop&w=1199&h=798&q=80&cs=tinysrgb&crop=">
                     <h1>Canyons</h1>
@@ -49,61 +44,9 @@ const LandingPage = () => {
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </Card>
             </div>
-            {/*<section className="section section-stream">*/}
-            {/*    /!*<img*!/*/}
-            {/*    /!*    className="play rellax"*!/*/}
-            {/*    /!*    src="https://i.ibb.co/Fn2SWJh/play.png"*!/*/}
-            {/*    /!*    alt="Play"*!/*/}
-            {/*    /!*    data-rellax-speed="0"*!/*/}
-            {/*    /!*    data-rellax-xs-speed="-5"*!/*/}
-            {/*    <div className="content rellax" data-rellax-speed="10">*/}
-            {/*        <div>*/}
-            {/*            <h2 className="secondary-text">Stream Everything</h2>*/}
-            {/*            <p>*/}
-            {/*                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque*/}
-            {/*                fugit molestiae placeat nesciunt autem et quos sapiente voluptates,*/}
-            {/*                magnam doloribus?*/}
-            {/*            </p>*/}
-            {/*        </div>*/}
-            {/*        <div>*/}
-            {/*            <h2 className="secondary-text">Short is the New Long</h2>*/}
-            {/*            <p>*/}
-            {/*                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque*/}
-            {/*                fugit molestiae placeat nesciunt autem et quos sapiente voluptates,*/}
-            {/*                magnam doloribus?*/}
-            {/*            </p>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</section>*/}
-            {/*<section className="section section-grid">*/}
-            {/*    <div className="rellax" data-rellax-speed="1" data-rellax-xs-speed="3">*/}
-            {/*        <i className="fas fa-video fa-3x secondary-text"></i>*/}
-            {/*        <h2>Watch<span className="secondary-text dot">.</span></h2>*/}
-            {/*        <p>*/}
-            {/*            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque fugit*/}
-            {/*            molestiae placeat nesciunt autem et quos sapiente voluptates, magnam*/}
-            {/*            doloribus?*/}
-            {/*        </p>*/}
-            {/*    </div>*/}
-            {/*    <div className="rellax" data-rellax-speed="4" data-rellax-xs-speed="3">*/}
-            {/*        <i className="fas fa-users fa-3x secondary-text"></i>*/}
-            {/*        <h2>Share<span className="secondary-text dot">.</span></h2>*/}
-            {/*        <p>*/}
-            {/*            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque fugit*/}
-            {/*            molestiae placeat nesciunt autem et quos sapiente voluptates, magnam*/}
-            {/*            doloribus?*/}
-            {/*        </p>*/}
-            {/*    </div>*/}
-            {/*    <div className="rellax" data-rellax-speed="7" data-rellax-xs-speed="3">*/}
-            {/*        <i className="fas fa-book fa-3x secondary-text"></i>*/}
-            {/*        <h2>Learn<span className="secondary-text dot">.</span></h2>*/}
-            {/*        <p>*/}
-            {/*            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque fugit*/}
-            {/*            molestiae placeat nesciunt autem et quos sapiente voluptates, magnam*/}
-            {/*            doloribus?*/}
-            {/*        </p>*/}
-            {/*    </div>*/}
-            {/*</section>*/}
+            <div className="landingPageJoinBtn-container">
+                <span onClick={handleClick} className="landingPageJoinBtn">Join us!</span>
+            </div>
         </div>
     );
 }

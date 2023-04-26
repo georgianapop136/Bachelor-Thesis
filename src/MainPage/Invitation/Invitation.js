@@ -1,12 +1,12 @@
 import * as React from 'react';
+import {useState} from 'react';
 import "./Invitation.css";
 import {TextField} from "@mui/material";
 import {DateField, LocalizationProvider} from "@mui/x-date-pickers";
 import {DemoContainer} from "@mui/x-date-pickers/internals/demo";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
-import InvitationFlowers from "../../Pictures/flowersnew.jpg";
-import {useState} from "react";
 import dayjs from 'dayjs';
+import NoAnimationRSVP from "../../RSVP/NoAnimationRSVP";
 
 const Invitation = () => {
 
@@ -50,6 +50,7 @@ const Invitation = () => {
                                 label="Choose your magical date!"
                                 value={invitationDate}
                                 onChange={handleInvitationDate}
+                                format="DD/MM/YYYY"
                             />
                         </DemoContainer>
                     </LocalizationProvider>
@@ -69,9 +70,7 @@ const Invitation = () => {
                 </div>
                 <div className="invitationLook flowers1">
                     <div className="invitationContent">
-                        <div>{coupleNames}</div>
-                        <div>{details}</div>
-                        <div>{invitationDate.isValid() ? invitationDate.format('DD/MM/YYYY').toString() : ""}</div>
+                        <NoAnimationRSVP nameOfTheHappyCouple={coupleNames} weddingDate={invitationDate.isValid() ? invitationDate.format('DD/MM/YYYY').toString() : ""} weddingLocation={details}/>
                     </div>
                 </div>
             </div>

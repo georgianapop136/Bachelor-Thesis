@@ -1,47 +1,19 @@
-import "./RSVP.css";
-import {useEffect} from "react";
+import "./NoAnimationRSVP.css";
 import 'bootstrap/dist/css/bootstrap.css';
 
-const RSVP = () => {
-
-    useEffect(() => {
-        const animationElements = document.querySelectorAll('.animation-element');
-
-        function checkIfInView() {
-            const windowHeight = window.innerHeight;
-            const windowTopPosition = window.scrollY;
-            const windowBottomPosition = windowTopPosition + windowHeight;
-
-            animationElements.forEach(element => {
-                const elementHeight = element.offsetHeight;
-                const elementTopPosition = element.offsetTop;
-                const elementBottomPosition = elementTopPosition + elementHeight;
-
-                // Check to see if this current container is within the viewport
-                if (elementBottomPosition >= windowTopPosition && elementTopPosition <= windowBottomPosition) {
-                    element.classList.add('in-view');
-                } else {
-                    element.classList.remove('in-view');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', checkIfInView);
-        window.addEventListener('resize', checkIfInView);
-        window.dispatchEvent(new Event('scroll'));
-    }, [])
+const NoAnimationRSVP = ({nameOfTheHappyCouple, weddingDate, weddingLocation}) => {
 
     return (
         <>
-            <div className="animation-element bounce-up">
+            <div>
                 <div className="paral paralsec jumbotron bounce-up" id="about">
                     <div className="rsvpDesc">
-                        <span className="rsvpTitle">Mr. and Mrs. John Doe</span>
+                        <span className="rsvpTitle">{nameOfTheHappyCouple}</span>
                     </div>
                 </div>
             </div>
 
-            <div className="rsvpDetails animation-element bounce-up">
+            <div >
                 <div className="jumbotron container-fluid" style={{backgroundColor: "#fff"}}>
                     <div className="rsvpH1">About the Bride</div>
                     <div className="row">
@@ -51,19 +23,14 @@ const RSVP = () => {
                                 className="thumb" />
                         </div>
                         <div className="col-md-6">
-                            <p className="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat
-                                venenatis risus sit amet mattis. Sed sagittis accumsan dapibus. Quisque et justo non
-                                massa efficitur consequat. Proin accumsan enim sed fermentum elementum. Quisque maximus
-                                rutrum nunc, quis lacinia eros porta eu. Praesent odio orci, sollicitudin a mattis
-                                vitae, commodo sit amet felis. Sed condimentum facilisis feugiat. Curabitur rhoncus
-                                pharetra enim, vel vehicula ipsum ullamcorper eget.
+                            <p className="info"> {weddingLocation}
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="rsvpGroomBackground rsvpDetails animation-element bounce-up">
+            <div>
                 <div className="jumbotron container-fluid">
                     <div className="rsvpH1">About the Groom</div>
                     <div className="row">
@@ -84,16 +51,16 @@ const RSVP = () => {
                 </div>
             </div>
 
-            <div className="animation-element bounce-up">
+            <div>
                 <div className="paral paralsec1 jumbotron">
                     <div className="rsvpDesc2" style={{backgroundColor: "rgba(1,1,1,.3)"}}>
                         <span className="title title2">Join us as we become one</span>
                         <hr className="rsvpHr"/>
                         <br /><br /><br />
-                            <span style={{color: "#fff"}}>May 29, 2018<br/>3:00 p.m.</span>
-                            <p>
-                                <button className="rsvpButton">RSVP</button>
-                            </p>
+                        <span style={{color: "#fff"}}>{weddingDate}</span>
+                        <p>
+                            <button className="rsvpButton">RSVP</button>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -101,4 +68,4 @@ const RSVP = () => {
     )
 }
 
-export default RSVP;
+export default NoAnimationRSVP;

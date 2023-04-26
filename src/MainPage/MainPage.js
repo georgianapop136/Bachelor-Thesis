@@ -4,9 +4,15 @@ import Checklist from "./Checklist/Checklist";
 import User from "./User/User";
 import Budget from "./Budget/Budget";
 import Invitation from "./Invitation/Invitation";
+import BudgetImg from "../Pictures/budget.png";
+import ChecklistImg from "../Pictures/checklist.png";
+import SeatingImg from "../Pictures/waiting-room.png";
+import InvitationImg from "../Pictures/wedding-invitation.png";
+import OverviewImg from "../Pictures/analysis.png";
 
 const MainPage = () => {
     const [selectedOption, setSelectedOption] = useState(5);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const getContent = () => {
         switch (selectedOption) {
@@ -25,92 +31,77 @@ const MainPage = () => {
         }
     }
 
-    return (
-        //     <div className="mainPageContainer">
-        //         <div className="mainPageNavigation">
-        //             <Button className="navigationButton"
-        //                     onClick={() => {
-        //                         setSelectedOption(1)
-        //                     }}
-        //                     variant={selectedOption === 1 ? "contained" : "outlined"}>Overview</Button>
-        //             <Button className="navigationButton"
-        //                     onClick={() => {
-        //                         setSelectedOption(2)
-        //                     }}
-        //                     variant={selectedOption === 2 ? "contained" : "outlined"}>Checklist</Button>
-        //             <Button className="navigationButton"
-        //                     onClick={() => {
-        //                         setSelectedOption(3)
-        //                     }}
-        //                     variant={selectedOption === 3 ? "contained" : "outlined"}>Budget</Button>
-        //             <Button className="navigationButton"
-        //                     onClick={() => {
-        //                         setSelectedOption(4)
-        //                     }}
-        //                     variant={selectedOption === 4 ? "contained" : "outlined"}>Seating</Button>
-        //             <Button className="navigationButton"
-        //                     onClick={() => {
-        //                         setSelectedOption(5)
-        //                     }}
-        //                     variant={selectedOption === 5 ? "contained" : "outlined"}>Invitation</Button>
-        //         </div>
-        //         <div className="mainPageContent">
-        //             <div><User/></div>
-        //             {getContent()}
-        //         </div>
-        //     </div>
-        // );
+    const handleClick = () => {
+        setIsMenuOpen(!isMenuOpen);
+    }
 
-        <div className="navigationBar">
-            <input type="checkbox" id="ham-menu"/>
-            <label htmlFor="ham-menu">
-                <div className="hide-des">
-                    <span className="menu-line"></span>
-                    <span className="menu-line"></span>
-                    <span className="menu-line"></span>
-                    <span className="menu-line"></span>
-                    <span className="menu-line"></span>
-                    <span className="menu-line"></span>
+    return (
+        <div className="mainPageContainer">
+            <div className={`mainPageNavigation ${isMenuOpen ? "mainPageNavigationOpen" : "mainPageNavigationClosed"}`}>
+                <svg className={`mainPageSvg ham hamRotate ham1 ${isMenuOpen ? "active" : ""}`} viewBox="0 0 100 100"
+                     width="55"
+                     onClick={handleClick}>
+                    <path
+                        className="line top"
+                        d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"/>
+                    <path
+                        className="line middle"
+                        d="m 30,50 h 40"/>
+                    <path
+                        className="line bottom"
+                        d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"/>
+                </svg>
+
+
+                <div className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"}`}
+                     onClick={() => {
+                         setSelectedOption(1)
+                     }}>
+                    <img className="imgStyles" src={OverviewImg}/>
+
+                    <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Overview</span>
+                </div>
+
+                <div className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"}`}
+                     onClick={() => {
+                         setSelectedOption(2)
+                     }}>
+                    <img className="imgStyles" src={ChecklistImg}/>
+                    <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Checklist</span>
 
                 </div>
-            </label>
-            <div className="full-page-green"></div>
-            <div className="ham-menu">
-                <ul className="centre-text bold-text">
-                    <button className="navigationButton"
-                            onClick={() => {
-                                setSelectedOption(1)
-                            }}>Overview
-                    </button>
-                    <button className="navigationButton"
-                            onClick={() => {
-                                setSelectedOption(2)
-                            }}>Checklist
-                    </button>
-                    <button className="navigationButton"
-                            onClick={() => {
-                                setSelectedOption(3)
-                            }}>Budget
-                    </button>
-                    <button className="navigationButton"
-                            onClick={() => {
-                                setSelectedOption(4)
-                            }}>Seating
-                    </button>
-                    <button className="navigationButton"
-                            onClick={() => {
-                                setSelectedOption(5)
-                            }}>Invitation
-                    </button>
-                </ul>
-            </div>
 
+                <div className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"}`}
+                     onClick={() => {
+                         setSelectedOption(3)
+                     }}>
+                    <img className="imgStyles" src={BudgetImg}/>
+                    <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Budget</span>
+                </div>
+
+                <div className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"}`}
+                     onClick={() => {
+                         setSelectedOption(4)
+                     }}>
+                    <img className="imgStyles" src={SeatingImg}/>
+                    <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Seating</span>
+
+                </div>
+
+                <div className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"}`}
+                     onClick={() => {
+                         setSelectedOption(5)
+                     }}>
+                    <img className="imgStyles" src={InvitationImg}/>
+                    <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Invitation</span>
+                </div>
+
+            </div>
             <div className="mainPageContent">
-                <div><User/></div>
+                <div className="mainPageHeader"><User/></div>
                 {getContent()}
             </div>
         </div>
-
     );
 }
 

@@ -1,7 +1,7 @@
 .invitationContainer {
     display: flex;
     justify-content: center;
-
+    margin-top: 17px
 }
 
 .invitationBuilder {
@@ -10,12 +10,13 @@
     display: flex;
     background-color: white;
     border-radius:20px;
+    box-shadow: -6px -6px 5px 0px rgba(133, 132, 132, 0.75);
 }
 
 .invitationCustomizer {
     width: 300px;
     height: 100%;
-    background-color: #F0F0F0;
+    background-color: #fcf9f9;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -36,7 +37,7 @@
 }
 
 .flowers1{
-    background: url(../../Pictures/flowersnew.jpg) no-repeat center center/cover;
+    /*background: url(../../Pictures/flowersnew.jpg) no-repeat center center/cover;*/
 }
 
 .invitationCustomizerTitle{
