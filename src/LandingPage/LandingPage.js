@@ -1,14 +1,11 @@
 import React, {useEffect, useRef, useState} from "react";
 import "./LandingPage.css";
 import Rellax from "rellax";
-import {Button} from "@mui/material";
 import {useNavigate, useNavigation} from "react-router";
 import Card from "./Card";
 
 
 const LandingPage = () => {
-
-
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -21,6 +18,7 @@ const LandingPage = () => {
 
     return (
         <div className="landingPageContainer">
+
             <div className="landingPageTitle">Title</div>
             <div id="app" className="landingPageCards">
                 <Card
@@ -44,8 +42,17 @@ const LandingPage = () => {
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </Card>
             </div>
-            <div className="landingPageJoinBtn-container">
-                <span onClick={handleClick} className="landingPageJoinBtn">Join us!</span>
+            {/*<div className="landingPageJoinBtn-container">*/}
+            {/*    <span onClick={handleClick} className="landingPageJoinBtn">Join us!</span>*/}
+            {/*</div>*/}
+
+            <div className="joinButton">
+                <div onClick={handleClick} className="svg-wrapper">
+                    <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+                        <rect className="shape" height="60" width="320"/>
+                    </svg>
+                    <div className="text">JOIN US!</div>
+                </div>
             </div>
         </div>
     );

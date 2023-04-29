@@ -1,8 +1,12 @@
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import "./Authentication.css";
 import {useNavigate} from "react-router";
-
 import {useState} from 'react';
+import authRightFlower from "../Pictures/authRightFlower.png";
+import authLeftFlower from "../Pictures/authLeftFlower.png";
+import authDownRightFlower from "../Pictures/authDownRightFlower.png";
+import authDownLeftFlower from "../Pictures/authDownLeftFlower.png";
+
 
 const Authentication = () => {
     const navigate = useNavigate();
@@ -28,7 +32,20 @@ const Authentication = () => {
     const signUpClassName = isSignUp ? 'signUp' : 'nodisplay signUp';
 
     return (
+
         <div className="authContainer">
+            <div className="authFlower1">
+                <img className="authImgStyle" src={authLeftFlower}></img>
+            </div>
+            <div className="authFlower2">
+                <img className="authImgStyle" src={authRightFlower}></img>
+            </div>
+            <div className="authFlower3">
+                <img className="authImgStyle" src={authDownRightFlower}></img>
+            </div>
+            <div className="authFlower4">
+                <img className="authImgStyle" src={authDownLeftFlower}></img>
+            </div>
             <div className="welcome">
                 <div className="pinkbox" style={pinkBoxStyle}>
                     <div className={signUpClassName}>
@@ -73,94 +90,5 @@ const Authentication = () => {
             </div>
         </div>);
 }
-
-//
-// const Authentication = () => {
-//     const navigate = useNavigate();
-//
-//     useEffect(() => {
-//         const signUpButton = document.getElementById("signUp");
-//         const signInButton = document.getElementById("signIn");
-//         const authContainer = document.getElementById("authContainer");
-//
-//         signUpButton.addEventListener("click", () => {
-//             authContainer.classNameList.add("right-panel-active");
-//         });
-//
-//         signInButton.addEventListener("click", () => {
-//             authContainer.classNameList.remove("right-panel-active");
-//         });
-//
-//         const labels = document.querySelectorAll(".form-control label");
-//
-//         labels.forEach((label) => {
-//             label.innerHTML = label.innerText
-//                 .split("")
-//                 .map(
-//                     (letter, idx) =>
-//                         `<span style="transition-delay:${idx * 50}ms">${letter}</span>`
-//                 )
-//                 .join("");
-//         });
-//     }, [])
-//
-//
-//     const handleClick = () => {
-//         navigate("/main");
-//     }
-//
-//     return (
-//         <div classNameName="authContainer" id="authContainer">
-//             <div classNameName="form-container sign-up-container">
-//                 <form>
-//                     <h3>Sign Up</h3>
-//                     <span>or use your email for registration</span>
-//                     <div classNameName="authFormControl">
-//                         <input type="text" required/>
-//                         <label>Name</label>
-//                     </div>
-//                     <div classNameName="authFormControl">
-//                         <input type="text" required/>
-//                         <label>Email</label>
-//                     </div>
-//                     <div classNameName="authFormControl">
-//                         <input type="password" required/>
-//                         <label>Password</label>
-//                     </div>
-//                     <button onClick={handleClick}>Sign Up</button>
-//                 </form>
-//             </div>
-//             <div classNameName="form-container sign-in-container">
-//                 <form>
-//                     <h3>Sign In</h3>
-//                     <span>or use your account</span>
-//                     <div classNameName="authFormControl">
-//                         <input type="text" required/>
-//                         <label>Email</label>
-//                     </div>
-//                     <div classNameName="authFormControl">
-//                         <input type="password" required/>
-//                         <label>Password</label>
-//                     </div>
-//                     <a href="#">Forgot your password?</a>
-//                     <button onClick={handleClick}>Sign In</button>
-//                 </form>
-//             </div>
-//             <div classNameName="overlay-container">
-//                 <div classNameName="overlay">
-//                     <div classNameName="overlay-panel overlay-left">
-//                         <h1>Welcome Back!</h1>
-//                         <p>Please login with your personal info</p>
-//                         <button classNameName="ghost" id="signIn">Sign In</button>
-//                     </div>
-//                     <div classNameName="overlay-panel overlay-right">
-//                         <h1>Hello, Friend!</h1>
-//                         <p>Enter your personal details and start your journey with us</p>
-//                         <button classNameName="ghost" id="signUp">Sign Up</button>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>)
-// }
 
 export default Authentication;

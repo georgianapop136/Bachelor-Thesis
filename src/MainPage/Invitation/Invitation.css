@@ -1,22 +1,27 @@
 .invitationContainer {
     display: flex;
     justify-content: center;
-    margin-top: 17px
+    background-color: #FFF8F8;
+    height: 532px;
 }
 
 .invitationBuilder {
     width: 950px;
-    height: 500px;
+    height: 470px;
     display: flex;
     background-color: white;
     border-radius:20px;
-    box-shadow: -6px -6px 5px 0px rgba(133, 132, 132, 0.75);
+    /*box-shadow: -5px -5px 5px 0px rgba(0, 0, 0, 0.1);*/
+    -moz-box-shadow: 0 0 3px #ccc;
+    -webkit-box-shadow: 0 0 3px #ccc;
+    box-shadow: 0 0 15px #ccc;
+    margin-top: 17px;
 }
 
 .invitationCustomizer {
     width: 300px;
     height: 100%;
-    background-color: #fcf9f9;
+    background-color: #f6f6f6;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

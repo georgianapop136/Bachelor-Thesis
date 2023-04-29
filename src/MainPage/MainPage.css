@@ -10,9 +10,11 @@
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: white;
+    background-color: #eed4d4;
     transition: width 0.5s ease-in-out;
-    border-right: 1px solid lightgray;
+    border-right: 1px solid #f3f0f0;
+    border-bottom-right-radius: 9px;
+    border-top-right-radius: 9px;
 }
 
 .mainPageNavigationOpen {
@@ -24,14 +26,14 @@
 }
 
 .mainPageContent {
-    background-color: #f3edf3;
+    background-color: #FFF8F8;;
     width: 100%;
     min-height: 100%;
     overflow: auto;
 }
 
 .mainPageHeader {
-    background-color: white;
+    background-color: #eed4d4;
     height: 45px;
 }
 
