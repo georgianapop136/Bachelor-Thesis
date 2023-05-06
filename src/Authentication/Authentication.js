@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import "./Authentication.css";
 import {useNavigate} from "react-router";
 import {useState} from 'react';
@@ -10,6 +10,15 @@ import authDownLeftFlower from "../Pictures/authDownLeftFlower.png";
 
 const Authentication = () => {
     const navigate = useNavigate();
+    const [loginEmail, setLoginEmail] = useState("");
+    const [loginPassword, setLoginPassword] = useState("");
+    const [isLoginError, setIsLoginError] = useState(false);
+
+    const [registerEmail, setRegisterEmail] = useState("");
+    const [registerPassword, setRegisterPassword] = useState("");
+    const [registerName, setRegisterName] = useState("");
+    const [isRegisterError, setIsRegisterError] = useState(false);
+
     const [isSignUp, setIsSignUp] = useState(false);
 
     const handleSignUp = () => {
@@ -20,8 +29,51 @@ const Authentication = () => {
         setIsSignUp(false);
     }
 
-    const handleClick = () => {
-        navigate("/main");
+    const handleLoginClick = async (event) => {
+        event.preventDefault(); // prevent form submission
+
+        try {
+            const response = await fetch('http://localhost:3001/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({email: loginEmail, password: loginPassword}),
+            });
+
+            if (response.status === 200) {
+                sessionStorage.setItem("loggedInUser", loginEmail);
+                navigate("/main");
+            } else if (response.status === 401) {
+                setIsLoginError(true)
+            }
+
+        } catch (error) {
+            console.error('Error while fetching data', error);
+        }
+    }
+
+    const handleRegisterClick = async (event) => {
+        event.preventDefault(); // prevent form submission
+
+        try {
+            const response = await fetch('http://localhost:3001/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({email: registerEmail, password: registerPassword, name: registerName}),
+            });
+
+            if (response.status === 200) {
+                navigate("/main");
+            } else if (response.status === 409) {
+                setIsRegisterError(true)
+            }
+
+        } catch (error) {
+            console.error('Error while fetching data', error);
+        }
     }
 
     const pinkBoxStyle = {
@@ -51,24 +103,55 @@ const Authentication = () => {
                     <div className={signUpClassName}>
                         <h1 className="authH1">register</h1>
                         <form className="authForm" autoComplete="off">
-                            <input className="authInput" type="text" placeholder="username"/>
-                            <input className="authInput" type="email" placeholder="email"/>
-                            <input className="authInput" type="password" placeholder="password"/>
+                            <input className="authInput" type="text" placeholder="username"
+                                   onChange={(e) => {
+                                       setRegisterName(e.target.value)
+                                       setIsRegisterError(false)
+                                   }
+                                   }/>
+                            <input className="authInput" type="email" placeholder="email"
+                                   onChange={(e) => {
+                                       setRegisterEmail(e.target.value)
+                                       setIsRegisterError(false)
+                                   }}/>
+                            <input className="authInput" type="password" placeholder="password"
+                                   onChange={(e) => {
+                                       setRegisterPassword(e.target.value)
+                                       setIsRegisterError(false)
+                                   }}/>
                             <input className="authInput" type="password" placeholder="confirm password"/>
-                            <button className="authButton authButton2 authSubmit">create account</button>
+                            {isRegisterError ? <div>User already exists!</div> : null}
+                            <button onClick={handleRegisterClick} className="authButton authButton2 authSubmit">create
+                                account
+                            </button>
                         </form>
                     </div>
                     <div className={signInClassName}>
                         <h1 className="authH1">sign in</h1>
                         <form className="more-padding authForm" autoComplete="off">
-                            <input className="authInput" type="text" placeholder="username"/>
-                            <input className="authInput" type="password" placeholder="password"/>
+                            <input
+                                className="authInput"
+                                type="text"
+                                onChange={(e) => {
+                                    setLoginEmail(e.target.value)
+                                    setIsLoginError(false)
+                                }}
+                                placeholder="email"/>
+                            <input className="authInput"
+                                   type="password"
+                                   placeholder="password"
+                                   onChange={(e) => {
+                                       setLoginPassword(e.target.value)
+                                       setIsLoginError(false)
+                                   }}/>
                             <div className="authCheckbox">
                                 <input className="authInput" type="checkbox" id="remember"/>
                                 <label className="authLabel" htmlFor="remember">remember me</label>
                             </div>
 
-                            <button onClick={handleClick} className="authButton authButton2 authSubmit">login</button>
+                            {isLoginError ? <div>Wrong email or password</div> : null}
+                            <button onClick={handleLoginClick} className="authButton authButton2 authSubmit">login
+                            </button>
                         </form>
                     </div>
                 </div>

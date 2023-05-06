@@ -1,32 +1,39 @@
 import {Button, Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Select, TextField} from "@mui/material";
 import "./Checklist.css";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 
 const Checklist = () => {
-
-    const [mockData, setMockData] = useState([
-        {
-            name: "Task 1",
-            month: 10,
-            checked: true,
-        },
-        {
-            name: "Task 2",
-            month: 3,
-            checked: false,
-        },
-        {
-            name: "Task 3",
-            month: 7,
-            checked: true,
-        }
-    ]);
-
     const [month, setMonth] = useState('');
     const [task, setTask] = useState('');
+    const [checklist, setChecklist] = useState([]);
+
+    useEffect(() => {
+       getChecklist()
+    }, []);
+
+    const getChecklist = () => {
+        const loggedInUser = sessionStorage.getItem("loggedInUser");
+
+        try {
+            fetch('http://localhost:3001/getChecklist', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({userEmail: loggedInUser}),
+            }).then(async(response) => {
+                if (response.status === 200) {
+                    const result = await response.json();
+                    setChecklist(result);
+                }
+            })
+        } catch (error) {
+            console.error('Error while fetching data', error);
+        }
+    }
 
     const handleChange = (event) => {
         setMonth(event.target.value);
@@ -37,21 +44,50 @@ const Checklist = () => {
     };
 
     const handleAddTask = () => {
-        const newTask = {
-            name: task,
-            month: month,
-            checked: false,
-        }
-
-        setMockData(current => [...current, newTask]);
-        setTask("");
-        setMonth("");
+        const loggedInUser = sessionStorage.getItem("loggedInUser");
+        fetch('http://localhost:3001/createChecklist', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({name: task, month: month, userEmail: loggedInUser}),
+        }).then(async(response) => {
+            if (response.status === 200) {
+                setTask("");
+                setMonth("")
+                getChecklist()
+            }
+        }).catch(error => {
+            console.error('Error while fetching data', error);
+        })
     }
 
-    const handleDeleteTask = (index) => {
-        const temp = [...mockData];
-        temp.splice(index, 1);
-        setMockData(temp);
+    const handleDeleteTask = (itemId) => {
+        fetch('http://localhost:3001/deleteChecklist', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({id: itemId}),
+        }).then(async(response) => {
+            if (response.status === 200) {
+                getChecklist()
+            }
+        })
+    }
+
+    const handleCheckbox = (itemId, isChecked) => {
+        fetch('http://localhost:3001/setChecklist', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({id: itemId, isChecked}),
+        }).then(async(response) => {
+            if (response.status === 200) {
+                getChecklist()
+            }
+        })
     }
 
     return (
@@ -92,16 +128,15 @@ const Checklist = () => {
             </div>
             <div className="checkListTasksContainer">
                 {
-                    mockData.map((task, index) => {
+                    checklist.map((task) => {
                         return (
                             <div className="checkListTaskStyle">
-                                <FormControlLabel control={<Checkbox checked={task.checked}/>} label={task.name}/>
+                                <FormControlLabel control={<Checkbox
+                                    onClick={() => handleCheckbox(task.id, !task.checked)} checked={task.checked}/>} label={task.name}/>
 
-                                <IconButton onClick={() => handleDeleteTask(index)} aria-label="delete" color="primary">
+                                <IconButton onClick={() => handleDeleteTask(task.id)} aria-label="delete" color="primary">
                                     <DeleteIcon/>
                                 </IconButton>
-
-
                             </div>
 
                         )

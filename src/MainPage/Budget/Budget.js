@@ -1,6 +1,6 @@
 import {InputAdornment, TextField} from "@mui/material";
 import "./Budget.css";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
 import IconButton from "@mui/material/IconButton";
@@ -8,43 +8,68 @@ import {Button} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
-import Autocomplete from '@mui/material/Autocomplete';
 
 const Budget = () => {
-    const [totalBudget, setTotalBudget] = useState('10000');
-
+    const [totalBudget, setTotalBudget] = useState("");
     const [isEditable, setIsEditable] = useState(false)
-    // const handleBudgetEdit = () => {
-    //     const newTask = {
-    //         name: "",
-    //         budget: "",
-    //         remaining: "",
-    //         spent: ""
-    //     }
+    const [expense, setExpense] = useState('');
+    const [cost, setCost] = useState('');
+    const [search, setSearch] = useState('');
+    const [expenseList, setExpenseList] = useState([]);
+
+
+    useEffect(() => {
+        loadBudget();
+        loadExpenses();
+    }, [])
 
     const inputPropsStyle = {style: {height: "50px"}};
     const textFieldStyle = {width: "200px", height: "50px"};
 
+    const loadBudget = () => {
+        try {
+            const userEmail = sessionStorage.getItem("loggedInUser");
 
-    const [mockData, setMockData] = useState([
-        {
-            name: "First expense",
-            cost: 325,
-        },
-        {
-            name: "Second expense",
-            cost: 463,
-        },
-        {
-            name: "Third expense",
-            cost: 721,
+            fetch('http://localhost:3001/getUser', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({email: userEmail}),
+            }).then(response => {
+                if (response.status === 200) {
+                    response.json().then(data => {
+                        if (data.user.budget !== null) {
+                            setTotalBudget(data.user.budget)
+                        }
+                    })
+                }
+            });
+        } catch (error) {
+            console.error('Error while fetching data', error);
         }
-    ]);
+    }
 
+    const loadExpenses = () => {
+        const loggedInUser = sessionStorage.getItem("loggedInUser");
 
-    const [expense, setExpense] = useState('');
-    const [cost, setCost] = useState('');
-    const [search, setSearch] = useState('');
+        try {
+            fetch('http://localhost:3001/getExpenses', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({userEmail: loggedInUser}),
+            }).then(async(response) => {
+                if (response.status === 200) {
+                    const result = await response.json();
+                    setExpenseList(result);
+                }
+            })
+        } catch (error) {
+            console.error('Error while fetching data', error);
+        }
+    }
 
     const handleExpenseChange = (event) => {
         setExpense(event.target.value);
@@ -59,29 +84,47 @@ const Budget = () => {
     }
 
     const handleAddExpense = () => {
-        const newExpense = {
-            name: expense,
-            cost: parseInt(cost, 10),
-        }
+        const loggedInUser = sessionStorage.getItem("loggedInUser");
 
-        setMockData(current => [...current, newExpense]);
-        setExpense("");
-        setCost("");
+        fetch('http://localhost:3001/createExpense', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({name: expense, value: cost, userEmail: loggedInUser}),
+        }).then(async(response) => {
+            if (response.status === 200) {
+                setExpense("");
+                setCost("");
+                loadExpenses();
+            }
+        }).catch(error => {
+            console.error('Error while fetching data', error);
+        })
     }
 
-    const handleDeleteExpense = (index) => {
-        const temp = [...mockData];
-        temp.splice(index, 1);
-        setMockData(temp);
+    const handleDeleteExpense = (id) => {
+        fetch('http://localhost:3001/deleteExpense', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({id}),
+        }).then(async(response) => {
+            if (response.status === 200) {
+                loadExpenses()
+            }
+        })
     }
 
     const calculateExpense = () => {
-        let total = 0;
-        mockData.forEach(item => {
-            total = total + item.cost;
+        let totalExpenses = 0;
+
+        expenseList.forEach(item => {
+            totalExpenses = totalExpenses + item.value;
         })
 
-        return total;
+        return totalExpenses;
     }
 
     const handleTotalBudgetChange = (event) => {
@@ -98,7 +141,20 @@ const Budget = () => {
             return "-"
         }
         return parseInt(totalBudget, 10) - calculateExpense()
+    }
 
+    const handleSaveBudget = () => {
+        const userEmail = sessionStorage.getItem("loggedInUser");
+
+        fetch('http://localhost:3001/updateBudget', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({email: userEmail, budget: totalBudget}),
+        }).then(() => {
+            setIsEditable(false)
+        })
     }
 
 
@@ -121,7 +177,7 @@ const Budget = () => {
                                         <IconButton onClick={() => setIsEditable(true)} size="small">
                                             <EditIcon fontSize="small"/>
                                         </IconButton> :
-                                        <IconButton onClick={() => setIsEditable(false)} size="small">
+                                        <IconButton onClick={handleSaveBudget} size="small">
                                             <SaveIcon fontSize="small"/>
                                         </IconButton>}
                                 </InputAdornment>
@@ -169,8 +225,6 @@ const Budget = () => {
                     value={cost}
                     type="number"
                     variant="outlined"/>
-
-
                 <Button onClick={handleAddExpense} className="budgetAddButton" variant="contained">Add</Button>
             </div>
             <div>
@@ -185,16 +239,16 @@ const Budget = () => {
                 </Stack>
                 <div className="budgetExpenseContainer">
                     {
-                        mockData
+                        expenseList
                             .filter(item => {
                                 return item.name.toLowerCase().includes(search.toLowerCase());
                             })
-                            .map((expense, index) => {
+                            .map((expense) => {
                                 return (
                                     <div className="budgetExpenseStyle">
                                         <div className="budgetExpenseName">{expense.name}</div>
-                                        <div>{expense.cost}</div>
-                                        <IconButton onClick={() => handleDeleteExpense(index)} aria-label="delete"
+                                        <div>{expense.value}</div>
+                                        <IconButton onClick={() => handleDeleteExpense(expense.id)} aria-label="delete"
                                                     color="primary">
                                             <DeleteIcon/>
                                         </IconButton>

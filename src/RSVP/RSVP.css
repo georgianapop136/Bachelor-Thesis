@@ -27,7 +27,7 @@
 }
 
 .paralsec {
-    background-image: url("https://images.unsplash.com/photo-1509994320249-7c2fc6db37b1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6466081079b89756cbff5d809a28ea18&auto=format&fit=crop&w=2472&q=80");
+    background-image: url(../Pictures/Flowers.jpg) !important;
     height: 100vh;
 }
 

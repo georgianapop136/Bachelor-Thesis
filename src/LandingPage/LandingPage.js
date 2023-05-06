@@ -1,7 +1,7 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect} from "react";
 import "./LandingPage.css";
 import Rellax from "rellax";
-import {useNavigate, useNavigation} from "react-router";
+import {useNavigate} from "react-router";
 import Card from "./Card";
 
 
@@ -42,9 +42,6 @@ const LandingPage = () => {
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </Card>
             </div>
-            {/*<div className="landingPageJoinBtn-container">*/}
-            {/*    <span onClick={handleClick} className="landingPageJoinBtn">Join us!</span>*/}
-            {/*</div>*/}
 
             <div className="joinButton">
                 <div onClick={handleClick} className="svg-wrapper">

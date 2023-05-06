@@ -4,30 +4,36 @@ import Checklist from "./Checklist/Checklist";
 import User from "./User/User";
 import Budget from "./Budget/Budget";
 import Invitation from "./Invitation/Invitation";
+import GuestList from "./GuestList/GuestList";
 import BudgetImg from "../Pictures/budget.png";
 import ChecklistImg from "../Pictures/checklist.png";
 import SeatingImg from "../Pictures/waiting-room.png";
 import InvitationImg from "../Pictures/wedding-invitation.png";
 import OverviewImg from "../Pictures/analysis.png";
+import GuestListImg from "../Pictures/table.png";
+import Seating from "./Seating/Seating";
+import Overview from "./Overview/Overview";
 
 const MainPage = () => {
-    const [selectedOption, setSelectedOption] = useState(5);
+    const [selectedOption, setSelectedOption] = useState(6);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const getContent = () => {
         switch (selectedOption) {
             case 1:
-                return "Overview";
+                return <Overview/>;
             case 2:
                 return <Checklist/>;
             case 3:
                 return <Budget/>;
             case 4:
-                return "Seating";
+                return <Seating/>;
             case 5:
                 return <Invitation/>;
+            case 6:
+                return <GuestList/>;
             default:
-                return "Overview";
+                return <Overview />;
         }
     }
 
@@ -94,6 +100,14 @@ const MainPage = () => {
                      }}>
                     <img className="imgStyles" src={InvitationImg}/>
                     <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Invitation</span>
+                </div>
+
+                <div className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"}`}
+                     onClick={() => {
+                         setSelectedOption(6)
+                     }}>
+                    <img className="imgStyles" src={GuestListImg}/>
+                    <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Guest List</span>
                 </div>
 
             </div>
