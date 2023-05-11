@@ -1,11 +1,7 @@
 .landingPageContainer{
-   background-color: #FFF8F8;
+   background-color: #DAD7CD;
     height: 100vh;
-}
-
-.landingPageTitle{
-    display:flex;
-    justify-content: center;
+    overflow: hidden;
 }
 
 .landingPageJoin{
@@ -14,7 +10,7 @@
 }
 
 .landingPageCards {
-    padding: 40px 80px;
+    padding: 0 80px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -83,7 +79,7 @@
     padding: 20px;
     position: absolute;
     bottom: 0;
-    color: #fff;
+    color: #ffffff;
     transform: translateY(40%);
     transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
@@ -127,6 +123,7 @@
     /*overflow: hidden;*/
     text-align: center;
     cursor: pointer;
+    top: 55px;
 }
 
 .svg-wrapper {
@@ -143,11 +140,11 @@
     stroke-dasharray: 140 540;
     stroke-dashoffset: -474;
     stroke-width: 8px;
-    stroke: #EAC7CC;
+    stroke: #588157;
 }
 
 .text {
-    color: #ff69b4;
+    color: #3A5A40;
     font-family: 'Roboto Condensed';
     font-size: 22px;
     letter-spacing: 8px;
@@ -172,4 +169,15 @@
 .svg-wrapper:hover .shape {
     -webkit-animation: 0.5s draw linear forwards;
     animation: 0.5s draw linear forwards;
+}
+
+.landingPageTitle{
+    display: flex;
+    justify-content: center;
+    height: 150px;
+}
+
+.logo{
+    height: 430px;
+    width: 550px;
 }

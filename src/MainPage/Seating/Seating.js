@@ -44,20 +44,10 @@ const Seating = () => {
                         return (
                             <div className="seatingCard">
                                 <div className="seatingCardHeader">
-                                    <div>{`Table: ${table.name}`}</div>
+                                    <div>{`${table.name}`}</div>
                                 </div>
                                 <div className="seatingCardBody">
-                                    <TextField
-                                        sx={{
-                                            width: {sm: 200},
-                                            "& .MuiInputBase-root": {
-                                                height: 40
-                                            }
-                                        }}
-                                        inputProps={{style: {fontSize: 5}}}
-                                        id="outlined-basic"
-                                        label="Enter guest name"
-                                    />
+
                                 </div>
                             </div>
                         )

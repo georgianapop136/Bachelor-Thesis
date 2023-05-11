@@ -10,11 +10,11 @@
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: #eed4d4;
+    background-color: #99ac92;
     transition: width 0.5s ease-in-out;
-    border-right: 1px solid #f3f0f0;
-    border-bottom-right-radius: 9px;
-    border-top-right-radius: 9px;
+    border-right: 1px solid #f3f6f3;
+    /*border-bottom-right-radius: 9px;*/
+    /*border-top-right-radius: 9px;*/
 }
 
 .mainPageNavigationOpen {
@@ -22,19 +22,19 @@
 }
 
 .mainPageNavigationClosed {
-    width: 70px;
+    width: 80px;
 }
 
 .mainPageContent {
-    background-color: #FFF8F8;;
+    background-color: #DAD7CD;;
     width: 100%;
     min-height: 100%;
     overflow: auto;
 }
 
 .mainPageHeader {
-    background-color: #eed4d4;
-    height: 45px;
+    background-color: #99ac92;
+    height: 40px;
 }
 
 .ham {
@@ -59,7 +59,7 @@
 .line {
     fill: none;
     transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-    stroke: #000;
+    stroke: #3a5a40;
     stroke-width: 5.5;
     stroke-linecap: round;
 }
@@ -89,29 +89,35 @@
 .imgStyles {
     height: 24px;
     width: 24px;
+    margin-left: 2px;
 }
 
 .navigationButton {
     padding: 5px;
     cursor: pointer;
-    border: 1px solid #faf7f7;
+    border: 1px solid #DAD7CD;
     transition: width 0.5s ease-in-out;;
     display: flex;
     flex-direction: row;
     gap: 10px;
+    color: #f6f8f7;
+    background-color: #588157;
 }
 
 .navigationButton:hover {
-    background-color: #f3edf3;
+    background-color: #344E41;
+    color: #DAD7CD;
+    border: 1px solid #3a5a40;
+    transition: width 0.5s ease-in-out;;
 }
 
 .navigationButtonOpen {
-    border-radius: 10px;
+    border-radius: 5px;
     width: 130px;
 }
 
 .navigationButtonClosed {
-    border-radius: 10px;
+    border-radius: 5px;
     width: 40px;
 }
 

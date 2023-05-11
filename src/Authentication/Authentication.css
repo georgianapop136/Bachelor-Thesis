@@ -6,11 +6,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FFF8F8;
+    background-color: #DAD7CD;
+    overflow: hidden;
 }
 
 .welcome {
-    background-color: #f6f6f6;
+    background-color: #B5C49C;
     width: 650px;
     height: 415px;
     border-radius: 5px;
@@ -23,7 +24,7 @@
     position: absolute;
     top: -10%;
     left: 5%;
-    background-color: #EAC7CC;
+    background-color: #3A5A40;
     width: 320px;
     height: 500px;
     border-radius: 5px;
@@ -57,13 +58,13 @@
     text-align: center;
     margin-top: 95px;
     text-transform: uppercase;
-    color: #f6f6f6;
+    color: #DAD7CD;
     font-size: 2em;
     letter-spacing: 8px;
 }
 
 .authTitle {
-    color: #8E9AAF;
+    color: #588157;
     font-size: 1.8em;
     line-height: 1.1em;
     letter-spacing: 3px;
@@ -84,29 +85,30 @@
 .authP {
     font-size: 0.7em;
     letter-spacing: 2px;
-    color: #8E9AAF;
+    color: #588157;
     text-align: center;
 }
 
 .authSpan {
-    color: #EAC7CC;
+    color: #3A5A40;
 }
 
 .flower {
     position: absolute;
-    width: 120px;
-    height: 120px;
-    top: 46%;
-    left: 29%;
+    width: 200px;
+    height: 200px;
+    top: 35%;
+    left: 20%;
     opacity: 0.7;
 }
 
 .smaller {
-    width: 90px;
-    height: 100px;
-    top: 48%;
-    left: 38%;
-    opacity: 0.9;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 33%;
+    left: 15%;
+    opacity: 0.7;
 }
 
 .authButton {
@@ -119,21 +121,23 @@
     margin: auto;
     outline: none;
     display: block;
+
 }
 
 .authButton:hover {
-    background: #EAC7CC;
-    color: white;
+    background: #3A5A40;
+    color: #DAD7CD;
     transition: background-color 1s ease-out;
 }
 
 
     .authButton2 {
         margin-top: 3%;
-        background: #ffffff;
-        color: #ff69b4;
-        border: solid 1px #f0f0f0;
+        background: #DAD7CD;
+        color: #3A5A40;
+        border: solid 1px #B5C49C;
     }
+
 
 /* form styling */
 .authForm {
@@ -158,18 +162,19 @@
 .authSubmit {
     margin-top: 25px;
     padding: 12px;
-    border-color: #ff69b4;
+    border-color: #B5C49C;
 }
 
 .authSubmit:hover {
-    background: #e6e6fa;
-    border-color: #c5c5d7;
+    background: #B5C49C;
+    border-color: #B5C49C;
+    color: #3A5A40;
 }
 
 .authInput {
-    background: #EAC7CC;
+    background: #3A5A40;
     width: 65%;
-    color: #ff69b4;
+    color: #DAD7CD;
     border: none !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
     padding: 9px;
@@ -177,14 +182,14 @@
 }
 
 .authInput::placeholder {
-    color: rgba(255, 255, 255, 1);
+    color: #DAD7CD;
     letter-spacing: 2px;
     font-size: 1.3em;
     font-weight: 100;
 }
 
 .authInput:focus {
-    color: #ff69b4;
+    color: #DAD7CD;
     outline: none;
     border-bottom: 1.2px solid rgba(255, 105, 180, 0.7);
     font-size: 1em;
@@ -197,7 +202,7 @@
 
 .authLabel {
     font-family: sans-serif;
-    color: #ff69b4;
+    color: #DAD7CD;
     font-size: 0.8em;
     letter-spacing: 1px;
 }
@@ -222,25 +227,25 @@
 
 .authFlower1 {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -100px;
+    left: -80px;
 }
-.authFlower2 {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
+/*.authFlower2 {*/
+/*    position: absolute;*/
+/*    right: 0;*/
+/*    top: 0;*/
+/*}*/
 .authFlower3 {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: -100px;
+    right: -100px;
 }
-.authFlower4 {
-    bottom: 0;
-    right: 0;
-    position: absolute;
-}
+/*.authFlower4 {*/
+/*    bottom: 0;*/
+/*    right: 0;*/
+/*    position: absolute;*/
+/*}*/
 
 .authImgStyle {
-    height: 120px;
+    height: 250px;
 }

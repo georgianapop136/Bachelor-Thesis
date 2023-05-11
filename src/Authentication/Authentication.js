@@ -2,10 +2,12 @@ import React from "react";
 import "./Authentication.css";
 import {useNavigate} from "react-router";
 import {useState} from 'react';
-import authRightFlower from "../Pictures/authRightFlower.png";
-import authLeftFlower from "../Pictures/authLeftFlower.png";
-import authDownRightFlower from "../Pictures/authDownRightFlower.png";
-import authDownLeftFlower from "../Pictures/authDownLeftFlower.png";
+import authCorner1 from "../Pictures/authCorner1.png";
+import authCorner2 from "../Pictures/authCorner2.png";
+import authCorner3 from "../Pictures/authCorner3.png";
+import authCorner4 from "../Pictures/authCorner4.png";
+import authWhiteFlower from "../Pictures/authWhiteFlower.png";
+import authRose from "../Pictures/authRose.png";
 
 
 const Authentication = () => {
@@ -87,17 +89,17 @@ const Authentication = () => {
 
         <div className="authContainer">
             <div className="authFlower1">
-                <img className="authImgStyle" src={authLeftFlower}></img>
+                <img className="authImgStyle" src={authCorner3}></img>
             </div>
-            <div className="authFlower2">
-                <img className="authImgStyle" src={authRightFlower}></img>
-            </div>
+            {/*<div className="authFlower2">*/}
+            {/*    <img className="authImgStyle" src={authCorner2}></img>*/}
+            {/*</div>*/}
             <div className="authFlower3">
-                <img className="authImgStyle" src={authDownRightFlower}></img>
+                <img className="authImgStyle" src={authCorner1}></img>
             </div>
-            <div className="authFlower4">
-                <img className="authImgStyle" src={authDownLeftFlower}></img>
-            </div>
+            {/*<div className="authFlower4">*/}
+            {/*    <img className="authImgStyle" src={authCorner4}></img>*/}
+            {/*</div>*/}
             <div className="welcome">
                 <div className="pinkbox" style={pinkBoxStyle}>
                     <div className={signUpClassName}>
@@ -150,7 +152,7 @@ const Authentication = () => {
                             </div>
 
                             {isLoginError ? <div>Wrong email or password</div> : null}
-                            <button onClick={handleLoginClick} className="authButton authButton2 authSubmit">login
+                            <button onClick={handleLoginClick} className="authButton authButton2 authSubmit">log in
                             </button>
                         </form>
                     </div>
@@ -158,7 +160,7 @@ const Authentication = () => {
                 <div className="leftbox">
                     <h2 className="authTitle"><span className="authSpan">BLOOM</span>&<br/>BOUQUET</h2>
                     <p className="authDesc authP">pick your perfect <span className="authSpan">bouquet</span></p>
-                    <img className="flower smaller" src="https://image.ibb.co/d5X6pn/1357d638624297b.jpg"
+                    <img className="smaller" src={authRose}
                          alt="1357d638624297b" border="0"/>
                     <p className="account authP">have an account?</p>
                     <button className="authButton authButton2" id="signIn" onClick={handleSignIn}>login</button>
@@ -166,7 +168,7 @@ const Authentication = () => {
                 <div className="rightbox">
                     <h2 className="authTitle"><span className="authSpan">BLOOM</span>&<br/>BOUQUET</h2>
                     <p className="authDesc authP"> pick your perfect <span className="authSpan">bouquet</span></p>
-                    <img alt="" className="flower" src="https://preview.ibb.co/jvu2Un/0057c1c1bab51a0.jpg"/>
+                    <img alt="" className="flower" src={authWhiteFlower}/>
                     <p className="account authP">don't have an account?</p>
                     <button className="authButton authButton2" id="signUp" onClick={handleSignUp}>sign up</button>
                 </div>

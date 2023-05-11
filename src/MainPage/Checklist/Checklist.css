@@ -24,15 +24,23 @@
 
 .checkListTaskStyle{
     height: 50px;
-    background-color: white;
+    background-color: #B5C49C;
     margin-top: 10px;
     border-radius: 30px;
     padding: 5px 20px 5px 20px;
     display: flex;
     justify-content: space-between;
     width: 90%;
+    color: #344E41;
 }
 
 .checkListTasksContainer{
     width: 80%;
+}
+
+.checklistDate{
+    margin-left: 200px;
+    display: flex;
+    align-items: center;
+
 }

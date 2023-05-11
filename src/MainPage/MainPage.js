@@ -5,12 +5,12 @@ import User from "./User/User";
 import Budget from "./Budget/Budget";
 import Invitation from "./Invitation/Invitation";
 import GuestList from "./GuestList/GuestList";
-import BudgetImg from "../Pictures/budget.png";
-import ChecklistImg from "../Pictures/checklist.png";
-import SeatingImg from "../Pictures/waiting-room.png";
-import InvitationImg from "../Pictures/wedding-invitation.png";
-import OverviewImg from "../Pictures/analysis.png";
-import GuestListImg from "../Pictures/table.png";
+import BudgetWhiteImg from "../Pictures/BudgetWhiteImg.png";
+import ChecklistWhiteImg from "../Pictures/ChecklistWhiteImg.png";
+import SeatingWhiteImg from "../Pictures/SeatingWhiteImg.png";
+import InvitationWhiteImg from "../Pictures/InvitationWhiteImg.png";
+import OverviewWhiteImg from "../Pictures/OverviewWhiteImg.png";
+import GuestListWhiteImg from "../Pictures/GuestListWhiteImg.png";
 import Seating from "./Seating/Seating";
 import Overview from "./Overview/Overview";
 
@@ -63,7 +63,7 @@ const MainPage = () => {
                      onClick={() => {
                          setSelectedOption(1)
                      }}>
-                    <img className="imgStyles" src={OverviewImg}/>
+                    <img className="imgStyles" src={OverviewWhiteImg}/>
 
                     <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Overview</span>
                 </div>
@@ -72,7 +72,7 @@ const MainPage = () => {
                      onClick={() => {
                          setSelectedOption(2)
                      }}>
-                    <img className="imgStyles" src={ChecklistImg}/>
+                    <img className="imgStyles" src={ChecklistWhiteImg}/>
                     <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Checklist</span>
 
                 </div>
@@ -81,7 +81,7 @@ const MainPage = () => {
                      onClick={() => {
                          setSelectedOption(3)
                      }}>
-                    <img className="imgStyles" src={BudgetImg}/>
+                    <img className="imgStyles" src={BudgetWhiteImg}/>
                     <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Budget</span>
                 </div>
 
@@ -89,7 +89,7 @@ const MainPage = () => {
                      onClick={() => {
                          setSelectedOption(4)
                      }}>
-                    <img className="imgStyles" src={SeatingImg}/>
+                    <img className="imgStyles" src={SeatingWhiteImg}/>
                     <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Seating</span>
 
                 </div>
@@ -98,7 +98,7 @@ const MainPage = () => {
                      onClick={() => {
                          setSelectedOption(5)
                      }}>
-                    <img className="imgStyles" src={InvitationImg}/>
+                    <img className="imgStyles" src={InvitationWhiteImg}/>
                     <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Invitation</span>
                 </div>
 
@@ -106,7 +106,7 @@ const MainPage = () => {
                      onClick={() => {
                          setSelectedOption(6)
                      }}>
-                    <img className="imgStyles" src={GuestListImg}/>
+                    <img className="imgStyles" src={GuestListWhiteImg}/>
                     <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Guest List</span>
                 </div>
 
