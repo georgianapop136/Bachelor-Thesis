@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import "./Invitation.css";
-import {TextField} from "@mui/material";
+import {Button, TextField} from "@mui/material";
 import {DateField, LocalizationProvider} from "@mui/x-date-pickers";
 import {DemoContainer} from "@mui/x-date-pickers/internals/demo";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
@@ -10,12 +10,41 @@ import NoAnimationRSVP from "../../RSVP/NoAnimationRSVP";
 
 const Invitation = () => {
 
-    const [coupleNames, setCoupleNames] = useState("");
+    const [invitationId, setInvitationId] = useState(undefined);
+    const [invitationName, setInvitationName] = useState("");
     const [invitationDate, setInvitationDate] = useState(dayjs());
-    const [details, setDetails] = useState("")
+    const [invitationDescription, setInvitationDescription] = useState("")
+
+    useEffect(() => {
+        loadInvitation();
+    }, [])
+
+    const loadInvitation = () => {
+        const loggedInUser = sessionStorage.getItem("loggedInUser");
+
+        try {
+            fetch('http://localhost:3001/getInvitation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({userEmail: loggedInUser}),
+            }).then(async (response) => {
+                if (response.status === 200) {
+                    const result = await response.json();
+                    setInvitationId(result.id);
+                    setInvitationName(result.name);
+                    setInvitationDescription(result.description);
+                    setInvitationDate(dayjs(result.wedding_date) || dayjs());
+                }
+            })
+        } catch (error) {
+            console.error('Error while fetching data', error);
+        }
+    }
 
     const handleCoupleNamesChanged = (event) => {
-        setCoupleNames(event.target.value)
+        setInvitationName(event.target.value)
     }
 
     const handleInvitationDate = (newValue) => {
@@ -23,7 +52,25 @@ const Invitation = () => {
     }
 
     const handleDetails = (event) => {
-        setDetails(event.target.value)
+        setInvitationDescription(event.target.value)
+    }
+
+    const handleUpdateInvitation = () => {
+        const loggedInUser = sessionStorage.getItem("loggedInUser");
+        //     const {name, id, description, weddingDate} = req.body;
+        fetch('http://localhost:3001/updateInvitation', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({name: invitationName, id: invitationId, description: invitationDescription, weddingDate: invitationDate}),
+        }).then(async (response) => {
+            if (response.status === 200) {
+                loadInvitation()
+            }
+        }).catch(error => {
+            console.error('Error while fetching data', error);
+        })
     }
 
     return (
@@ -32,7 +79,7 @@ const Invitation = () => {
                 <div className="invitationCustomizer">
                     <div className="invitationCustomizerTitle">Build your own invitation here!</div>
                     <TextField
-                        value={coupleNames}
+                        value={invitationName}
                         onChange={handleCoupleNamesChanged}
                         sx={{
                             width: {sm: 230},
@@ -56,7 +103,7 @@ const Invitation = () => {
                     </LocalizationProvider>
 
                     <TextField
-                        value={details}
+                        value={invitationDescription}
                         onChange={handleDetails}
                         sx={{
                             width: {sm: 230},
@@ -67,10 +114,12 @@ const Invitation = () => {
                         rows={3}
                         inputProps={{style: {fontSize: 13}, maxLength: 125}}
                     />
+                    <Button onClick={handleUpdateInvitation} variant="contained">Save</Button>
+
                 </div>
                 <div className="invitationLook flowers1">
                     <div className="invitationContent">
-                        <NoAnimationRSVP nameOfTheHappyCouple={coupleNames} weddingDate={invitationDate.isValid() ? invitationDate.format('DD/MM/YYYY').toString() : ""} weddingLocation={details}/>
+                        <NoAnimationRSVP nameOfTheHappyCouple={invitationName} weddingDate={invitationDate.isValid() ? invitationDate.format('DD/MM/YYYY').toString() : ""} weddingLocation={invitationDescription}/>
                     </div>
                 </div>
             </div>

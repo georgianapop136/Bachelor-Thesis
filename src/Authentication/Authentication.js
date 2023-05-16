@@ -9,7 +9,6 @@ import authCorner4 from "../Pictures/authCorner4.png";
 import authWhiteFlower from "../Pictures/authWhiteFlower.png";
 import authRose from "../Pictures/authRose.png";
 
-
 const Authentication = () => {
     const navigate = useNavigate();
     const [loginEmail, setLoginEmail] = useState("");
@@ -68,6 +67,7 @@ const Authentication = () => {
             });
 
             if (response.status === 200) {
+                sessionStorage.setItem("loggedInUser", loginEmail);
                 navigate("/main");
             } else if (response.status === 409) {
                 setIsRegisterError(true)
@@ -91,15 +91,10 @@ const Authentication = () => {
             <div className="authFlower1">
                 <img className="authImgStyle" src={authCorner3}></img>
             </div>
-            {/*<div className="authFlower2">*/}
-            {/*    <img className="authImgStyle" src={authCorner2}></img>*/}
-            {/*</div>*/}
+
             <div className="authFlower3">
                 <img className="authImgStyle" src={authCorner1}></img>
             </div>
-            {/*<div className="authFlower4">*/}
-            {/*    <img className="authImgStyle" src={authCorner4}></img>*/}
-            {/*</div>*/}
             <div className="welcome">
                 <div className="pinkbox" style={pinkBoxStyle}>
                     <div className={signUpClassName}>

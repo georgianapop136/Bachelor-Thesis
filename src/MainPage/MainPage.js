@@ -1,5 +1,5 @@
 import "./MainPage.css"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Checklist from "./Checklist/Checklist";
 import User from "./User/User";
 import Budget from "./Budget/Budget";
@@ -13,8 +13,10 @@ import OverviewWhiteImg from "../Pictures/OverviewWhiteImg.png";
 import GuestListWhiteImg from "../Pictures/GuestListWhiteImg.png";
 import Seating from "./Seating/Seating";
 import Overview from "./Overview/Overview";
+import {useNavigate} from "react-router";
 
 const MainPage = () => {
+    const navigate = useNavigate();
     const [selectedOption, setSelectedOption] = useState(6);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
