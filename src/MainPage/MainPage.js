@@ -17,7 +17,7 @@ import {useNavigate} from "react-router";
 
 const MainPage = () => {
     const navigate = useNavigate();
-    const [selectedOption, setSelectedOption] = useState(6);
+    const [selectedOption, setSelectedOption] = useState(4);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const getContent = () => {

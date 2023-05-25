@@ -34,7 +34,6 @@ const GuestList = () => {
         }
     }
 
-
     const handleAddGuest = () => {
         const loggedInUser = sessionStorage.getItem("loggedInUser");
         fetch('http://localhost:3001/createGuest', {

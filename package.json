@@ -5,7 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@mui/icons-material": "^5.11.11",
+    "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.11.15",
     "@mui/x-date-pickers": "^6.0.4",
     "@mui/x-date-pickers-pro": "^6.0.4",
@@ -17,6 +17,7 @@
     "dayjs": "^1.11.7",
     "jquery": "^3.6.4",
     "react": "^18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
     "react-bootstrap": "^2.7.2",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
