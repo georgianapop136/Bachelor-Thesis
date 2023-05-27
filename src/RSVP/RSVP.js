@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import theme1Photo from "../Pictures/theme/theme1/picture2.png";
 import theme2Photo from "../Pictures/theme/theme2/picture2.jpg";
 import theme3Photo from "../Pictures/theme/theme3/picture2.jpg";
+import RSVPModal from "./RSVPModal";
 
 const RSVP = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -15,9 +16,12 @@ const RSVP = () => {
     const [invitationDescription, setInvitationDescription] = useState("")
     const [selectedTheme, setSelectedTheme] = useState(1)
 
+    const [showModal, setShowModal] = useState(false)
+    const [guest, setGuest] = useState(undefined)
 
     useEffect(() => {
-        loadInvitation()
+        loadInvitation();
+        loadGuestData();
 
         const animationElements = document.querySelectorAll('.animation-element');
 
@@ -44,6 +48,25 @@ const RSVP = () => {
         window.addEventListener('resize', checkIfInView);
         window.dispatchEvent(new Event('scroll'));
     }, [])
+
+    const loadGuestData = () => {
+        try {
+            fetch('http://localhost:3001/getGuest', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({guestId: searchParams.get("guestId")}),
+            }).then(async (response) => {
+                if (response.status === 200) {
+                    const result = await response.json();
+                    setGuest(result);
+                }
+            })
+        } catch (error) {
+            console.error('Error while fetching data', error);
+        }
+    }
 
     const getBackgroundImage1 = () => {
         if (selectedTheme === 1) {
@@ -76,7 +99,6 @@ const RSVP = () => {
     }
 
     const loadInvitation = () => {
-
         try {
             fetch('http://localhost:3001/getInvitation', {
                 method: 'POST',
@@ -134,11 +156,15 @@ const RSVP = () => {
                             {invitationDate.isValid() ? invitationDate.format('DD/MM/YYYY').toString() : ""}
                         </h2>
                         <p>
-                            <button className="rsvpButton">RSVP</button>
+                            <button onClick={() => setShowModal(true)} className="rsvpButton">RSVP</button>
                         </p>
                     </div>
                 </div>
             </div>
+            <RSVPModal
+                userEmail={searchParams.get("user")}
+                guest={guest}
+                show={showModal} handleClose={() => setShowModal(false)}/>
         </>
     )
 }

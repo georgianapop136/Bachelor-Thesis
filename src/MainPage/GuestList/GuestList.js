@@ -8,10 +8,34 @@ import {Button, TextField} from "@mui/material";
 const GuestList = () => {
     const [guestList, setGuestList] = useState([]);
     const [name, setName] = useState('');
+    const [seats, setSeats] = useState([]);
 
     useEffect(() => {
         loadGuestList();
+        getSeats();
     }, [])
+
+    const getSeats = () => {
+        const loggedInUser = sessionStorage.getItem("loggedInUser");
+
+        try {
+            fetch('http://localhost:3001/getSeats', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({userEmail: loggedInUser}),
+            }).then(async (response) => {
+                if (response.status === 200) {
+                    const result = await response.json();
+                    setSeats(result);
+                }
+            })
+        } catch (error) {
+            console.error('Error while fetching data', error);
+        }
+    }
+
 
     const loadGuestList = () => {
         const loggedInUser = sessionStorage.getItem("loggedInUser");
@@ -93,6 +117,7 @@ const GuestList = () => {
                         <th>Nr.</th>
                         <th>Name</th>
                         <th>Confirmed</th>
+                        <th>Assigned to table</th>
                         <th>Link</th>
                     </tr>
                     </thead>
@@ -103,9 +128,10 @@ const GuestList = () => {
                                 <tr key={index}>
                                     <td>{index + 1}</td>
                                     <td>{guest.name}</td>
-                                    <td>{guest.confirmed ? "Yes" : "No"}</td>
+                                    <td>{guest.confirmed === null ? "-" : guest.confirmed ? "Yes" : "No"}</td>
+                                    <td>{seats.filter(seat => seat.id === guest.seating_id)[0]?.name}</td>
                                     <td>
-                                        <a href={"http://localhost:3000/RSVP?name=" + encodeURIComponent(guest.name) + "&user=" + encodeURIComponent(sessionStorage.getItem("loggedInUser"))}
+                                        <a href={"http://localhost:3000/RSVP?guestId=" + encodeURIComponent(guest.id) + "&user=" + encodeURIComponent(sessionStorage.getItem("loggedInUser"))}
                                            target="_blank"> Link to invitation </a>
                                     </td>
                                     <td>

@@ -1,0 +1,79 @@
+
+
+.confirmationActionsContainer {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    height: 100px;
+    justify-content: center;
+    gap: 40px;
+    align-items: center;
+}
+
+.rsvpModalSeatsContainer {
+    width: 900px !important;
+    height: 500px;
+}
+
+.rsvpSeatingCardsList {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.rsvpSeatingCard {
+    min-height: 200px;
+    width: 400px;
+    border-radius: 8px;
+    margin-bottom: 70px;
+}
+
+.rsvpSeatingCardHeader {
+    height: 55px;
+    background-color: #344E41;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #DAD7CD;
+}
+
+.rsvpSeatingCardBody {
+    background-color: #B5C49C;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    height: 100%;
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rsvpSeatingCardBodyGuestList {
+    height: 100%;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.rsvpSeatingGuest {
+    width: 170px;
+    padding: 5px;
+    height: 40px;
+    background-color: lightgray;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.rsvpSeatingGuestText {
+    font-size: 12px;
+}
