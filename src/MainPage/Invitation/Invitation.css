@@ -6,8 +6,8 @@
 }
 
 .invitationBuilder {
-    width: 950px;
-    height: 470px;
+    width: 1350px;
+    height: 650px;
     display: flex;
     background-color: white;
     border-radius:20px;
@@ -19,7 +19,7 @@
 }
 
 .invitationCustomizer {
-    width: 300px;
+    width: 30%;
     height: 100%;
     background-color: #B5C49C;
     display: flex;
@@ -27,11 +27,48 @@
     justify-content: space-evenly;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    align-items: center;
+    align-items: start;
+    padding-left: 30px;
 }
 
+.invitationThemeContainer {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin: 20px 0 20px 0;
+}
+
+.invitationThemeCard {
+    height: 150px;
+    width: 27%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.invitationThemeCardText {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 25%;
+    align-items: center;
+    font-size: 14px;
+}
+
+.invitationThemeImg {
+    height: 75%;
+}
+
+.invitationThemeSelected {
+    border: 2px solid black;
+}
+
+
 .invitationLook {
-    width: 650px;
+    width: 70%;
     height: 100%;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;

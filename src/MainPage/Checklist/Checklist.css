@@ -13,32 +13,129 @@
     margin-top: 40px;
 }
 
+.addSubtaskContainer {
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.subtaskStatus {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 10px 0 10px;
+}
+
+.checklistActionContainer {
+    display: flex;
+    align-items: center;
+}
+
 .checkListTaskInput {
     width: 500px !important;
     height: 30px !important;
+}
+
+.subtaskInput {
+    width: 500px !important;
+    height: 20px !important;
 }
 
 .checkListMonthSelector {
     width: 150px !important;
 }
 
-.checkListTaskStyle{
+.checkListTaskStyle {
     height: 50px;
     background-color: #B5C49C;
     margin-top: 10px;
-    border-radius: 30px;
     padding: 5px 20px 5px 20px;
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     color: #344E41;
 }
 
-.checkListTasksContainer{
+.subtaskContainer {
+    background-color: grey;
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+
+.hiddenSubtaskContainer {
+    height: 0;
+    overflow: hidden;
+}
+
+.withBorderBottom {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.withBorderBottomLeft {
+    border-bottom-left-radius: 20px;
+}
+
+.completedChecklist {
+    opacity: 0.4;
+}
+
+.subtaskPercentageStyle {
+    background-color: red;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-top-left-radius: 20px;
+}
+
+.completedTextDecoration {
+    text-decoration: line-through;
+}
+
+.withBorderTopRight {
+    border-top-right-radius: 20px;
+}
+
+.withBorderBottomRight {
+    border-bottom-right-radius: 20px;
+}
+
+.subtaskStyle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.checklistItemContainer {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    border-radius: 30px;
+}
+
+.checklistItemContainerClosedHeight {
+    height: 50px;
+}
+
+.checklistItemContainerOpenHeight {
+    height: 100px;
+}
+
+.checkListTasksContainer {
     width: 80%;
 }
 
-.checklistDate{
+.checklistDate {
     margin-left: 200px;
     display: flex;
     align-items: center;

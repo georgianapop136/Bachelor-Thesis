@@ -3,6 +3,7 @@ import "./Checklist.css";
 import {useEffect, useState} from "react";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from '@mui/icons-material/Delete';
+import ChecklistItem from "./ChecklistItem";
 
 
 const Checklist = () => {
@@ -90,6 +91,53 @@ const Checklist = () => {
         })
     }
 
+    const handleAddSubtask = (subtaskName, taskId) => {
+        fetch('http://localhost:3001/createSubtask', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({name: subtaskName, checklistId: taskId}),
+        }).then(async(response) => {
+            if (response.status === 200) {
+                getChecklist()
+            }
+        }).catch(error => {
+            console.error('Error while fetching data', error);
+        })
+    }
+
+    const handleDeleteSubtask = (subtaskId) => {
+        fetch('http://localhost:3001/deleteSubtask', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({id: subtaskId}),
+        }).then(async(response) => {
+            if (response.status === 200) {
+                getChecklist()
+            }
+        }).catch(error => {
+            console.error('Error while fetching data', error);
+        })
+    }
+
+    const handleCheckSubtask = (itemId, isChecked, taskId) => {
+        fetch('http://localhost:3001/setSubtask', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({id: itemId, isChecked, taskId}),
+        }).then(async(response) => {
+            if (response.status === 200) {
+                getChecklist()
+            }
+        })
+    }
+
+
     return (
         <div className="checkListContainer">
             <div className="addTaskContainer">
@@ -129,17 +177,13 @@ const Checklist = () => {
             <div className="checkListTasksContainer">
                 {
                     checklist.map((task) => {
-                        return (
-                            <div className="checkListTaskStyle">
-                                <FormControlLabel control={<Checkbox
-                                    onClick={() => handleCheckbox(task.id, !task.checked)} checked={task.checked}/>} label={task.name}/>
-                                    <div className="checklistDate">{task.month}</div>
-                                <IconButton onClick={() => handleDeleteTask(task.id)} aria-label="delete" color="primary">
-                                    <DeleteIcon/>
-                                </IconButton>
-                            </div>
-
-                        )
+                        return <ChecklistItem
+                            task={task}
+                            handleCheckbox={handleCheckbox}
+                            handleAddSubtask={handleAddSubtask}
+                            handleCheckSubtask={handleCheckSubtask}
+                            handleDeleteSubtask={handleDeleteSubtask}
+                            handleDeleteTask={handleDeleteTask}/>
                     })
                 }
             </div>

@@ -27,9 +27,21 @@
 }
 
 .rsvp2Paralsec {
-    background-image: url("https://images.unsplash.com/photo-1509994320249-7c2fc6db37b1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6466081079b89756cbff5d809a28ea18&auto=format&fit=crop&w=2472&q=80");
     height: 80vh;
 }
+
+.theme1BackgroundImage {
+    background-image: url(../Pictures/theme/theme1/picture1.jpg) !important;
+}
+
+.theme2BackgroundImage {
+    background-image: url(../Pictures/theme/theme2/picture1.jpg) !important;
+}
+
+.theme3BackgroundImage {
+    background-image: url(../Pictures/theme/theme3/picture1.jpg) !important;
+}
+
 
 .rsvp2Desc {
     color: #fff;
@@ -49,6 +61,10 @@
     text-align: center;
 }
 
+.weddingDetailsContainer {
+    margin: 20px 0 50px 0;
+}
+
 .rsvp2Title2 {
     font-family: "Muli";
     font-size: 3em;
@@ -57,8 +73,19 @@
 }
 
 .rsvp2Paralsec1 {
-    background-image: url("https://images.unsplash.com/photo-1519227052808-f41f4e405df0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c0e20b086d58d7fe54db413716b29510&auto=format&fit=crop&w=1350&q=80");
     height: 500px;
+}
+
+.backgroundImage3Theme1 {
+    background-image: url(../Pictures/theme/theme1/picture3.jpg) !important;
+}
+
+.backgroundImage3Theme2 {
+    background-image: url(../Pictures/theme/theme2/picture3.jpg) !important;
+}
+
+.backgroundImage3Theme3 {
+    background-image: url(../Pictures/theme/theme3/picture3.jpg) !important;
 }
 
 .rsvp2Jumbotron {

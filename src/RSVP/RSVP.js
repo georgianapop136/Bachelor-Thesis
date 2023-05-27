@@ -1,10 +1,24 @@
 import "./RSVP.css";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
+import {useSearchParams} from "react-router-dom";
+import dayjs from "dayjs";
+import theme1Photo from "../Pictures/theme/theme1/picture2.png";
+import theme2Photo from "../Pictures/theme/theme2/picture2.jpg";
+import theme3Photo from "../Pictures/theme/theme3/picture2.jpg";
 
 const RSVP = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const [invitationName, setInvitationName] = useState("");
+    const [invitationDate, setInvitationDate] = useState(dayjs());
+    const [invitationDescription, setInvitationDescription] = useState("")
+    const [selectedTheme, setSelectedTheme] = useState(1)
+
 
     useEffect(() => {
+        loadInvitation()
+
         const animationElements = document.querySelectorAll('.animation-element');
 
         function checkIfInView() {
@@ -31,69 +45,97 @@ const RSVP = () => {
         window.dispatchEvent(new Event('scroll'));
     }, [])
 
+    const getBackgroundImage1 = () => {
+        if (selectedTheme === 1) {
+            return 'theme1BackgroundImage';
+        } else if (selectedTheme === 2) {
+            return 'theme2BackgroundImage';
+        } else if (selectedTheme === 3) {
+            return 'theme3BackgroundImage';
+        }
+    }
+
+    const getBackgroundImage3 = () => {
+        if (selectedTheme === 1) {
+            return 'backgroundImage3Theme1';
+        } else if (selectedTheme === 2) {
+            return 'backgroundImage3Theme2';
+        } else if (selectedTheme === 3) {
+            return 'backgroundImage3Theme3';
+        }
+    }
+
+    const getWeddingDetailsPhoto = () => {
+        if (selectedTheme === 1) {
+            return theme1Photo;
+        } else if (selectedTheme === 2) {
+            return theme2Photo;
+        } else if (selectedTheme === 3) {
+            return theme3Photo;
+        }
+    }
+
+    const loadInvitation = () => {
+
+        try {
+            fetch('http://localhost:3001/getInvitation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({userEmail: searchParams.get("user")}),
+            }).then(async (response) => {
+                if (response.status === 200) {
+                    const result = await response.json();
+                    setInvitationName(result.name);
+                    setSelectedTheme(result.selected_theme || 1);
+                    setInvitationDescription(result.description);
+                    setInvitationDate(dayjs(result.wedding_date) || dayjs());
+                }
+            })
+        } catch (error) {
+            console.error('Error while fetching data', error);
+        }
+    }
+
     return (
         <>
             <div className="animation-element bounce-up">
-                <div className="paral paralsec jumbotron bounce-up" id="about">
+                <div className={`rsvp2Paral rsvp2Paralsec rsvp2Jumbotron rsvp2Bounce-up ${getBackgroundImage1()}`} id="about">
                     <div className="rsvpDesc">
-                        <span className="rsvpTitle">Mr. and Mrs. John Doe</span>
+                        <span className="rsvpTitle">{invitationName}</span>
                     </div>
                 </div>
             </div>
 
             <div className="rsvpDetails animation-element bounce-up">
                 <div className="jumbotron container-fluid" style={{backgroundColor: "#fff"}}>
-                    <div className="rsvpH1">About the Bride</div>
+                    <div className="rsvpH1">Wedding details</div>
                     <div className="row">
                         <div className="col-md-6">
                             <img
-                                src="https://images.unsplash.com/photo-1463097769237-a14ad08ff22b?ixlib=rb-0.3.5&s=d50252ca609fd8dac53c9782ba9f7795&auto=format&fit=crop&w=1489&q=80"
-                                className="thumb" />
+                                src={getWeddingDetailsPhoto()}
+                                className="thumb"/>
                         </div>
                         <div className="col-md-6">
-                            <p className="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat
-                                venenatis risus sit amet mattis. Sed sagittis accumsan dapibus. Quisque et justo non
-                                massa efficitur consequat. Proin accumsan enim sed fermentum elementum. Quisque maximus
-                                rutrum nunc, quis lacinia eros porta eu. Praesent odio orci, sollicitudin a mattis
-                                vitae, commodo sit amet felis. Sed condimentum facilisis feugiat. Curabitur rhoncus
-                                pharetra enim, vel vehicula ipsum ullamcorper eget.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="rsvpGroomBackground rsvpDetails animation-element bounce-up">
-                <div className="jumbotron container-fluid">
-                    <div className="rsvpH1">About the Groom</div>
-                    <div className="row">
-                        <div className="col-md-6">
-                            <p className="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat
-                                venenatis risus sit amet mattis. Sed sagittis accumsan dapibus. Quisque et justo non
-                                massa efficitur consequat. Proin accumsan enim sed fermentum elementum. Quisque maximus
-                                rutrum nunc, quis lacinia eros porta eu. Praesent odio orci, sollicitudin a mattis
-                                vitae, commodo sit amet felis. Sed condimentum facilisis feugiat. Curabitur rhoncus
-                                pharetra enim, vel vehicula ipsum ullamcorper eget.</p>
-                        </div>
-                        <div className="col-md-6">
-                            <img
-                                src="https://images.unsplash.com/photo-1490006017569-465ccb897ba1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e669bc7ae2d5682aae15610470b44efb&auto=format&fit=crop&w=1350&q=80"
-                                className="thumb" />
+                            <p className="info">{invitationDescription}</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div className="animation-element bounce-up">
-                <div className="paral paralsec1 jumbotron">
+                <div className={`rsvp2Paral rsvp2Paralsec1 rsvp2Jumbotron ${getBackgroundImage3()}`}>
                     <div className="rsvpDesc2" style={{backgroundColor: "rgba(1,1,1,.3)"}}>
                         <span className="title title2">Join us as we become one</span>
                         <hr className="rsvpHr"/>
-                        <br /><br /><br />
-                            <span style={{color: "#fff"}}>May 29, 2018<br/>3:00 p.m.</span>
-                            <p>
-                                <button className="rsvpButton">RSVP</button>
-                            </p>
+                        <br/><br/>
+                        <h2 style={{color: "#fff"}}>
+                            {invitationDate.isValid() ? invitationDate.format('DD/MM/YYYY').toString() : ""}
+                        </h2>
+                        <p>
+                            <button className="rsvpButton">RSVP</button>
+                        </p>
                     </div>
                 </div>
             </div>

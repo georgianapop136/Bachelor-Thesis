@@ -105,7 +105,7 @@ const GuestList = () => {
                                     <td>{guest.name}</td>
                                     <td>{guest.confirmed ? "Yes" : "No"}</td>
                                     <td>
-                                        <a href={"http://localhost:3000/RSVP?name=" + encodeURIComponent(guest.name)}
+                                        <a href={"http://localhost:3000/RSVP?name=" + encodeURIComponent(guest.name) + "&user=" + encodeURIComponent(sessionStorage.getItem("loggedInUser"))}
                                            target="_blank"> Link to invitation </a>
                                     </td>
                                     <td>

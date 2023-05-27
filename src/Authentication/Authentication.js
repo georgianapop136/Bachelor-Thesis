@@ -67,7 +67,7 @@ const Authentication = () => {
             });
 
             if (response.status === 200) {
-                sessionStorage.setItem("loggedInUser", loginEmail);
+                sessionStorage.setItem("loggedInUser", registerEmail);
                 navigate("/main");
             } else if (response.status === 409) {
                 setIsRegisterError(true)

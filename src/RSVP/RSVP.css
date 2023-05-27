@@ -31,6 +31,32 @@
     height: 100vh;
 }
 
+.backgroundImage3Theme1 {
+    background-image: url(../Pictures/theme/theme1/picture3.jpg) !important;
+}
+
+.backgroundImage3Theme2 {
+    background-image: url(../Pictures/theme/theme2/picture3.jpg) !important;
+}
+
+.backgroundImage3Theme3 {
+    background-image: url(../Pictures/theme/theme3/picture3.jpg) !important;
+}
+
+.theme1BackgroundImage {
+    background-image: url(../Pictures/theme/theme1/picture1.jpg) !important;
+}
+
+.theme2BackgroundImage {
+    background-image: url(../Pictures/theme/theme2/picture1.jpg) !important;
+}
+
+.theme3BackgroundImage {
+    background-image: url(../Pictures/theme/theme3/picture1.jpg) !important;
+}
+
+
+
 .rsvpDesc {
     color: #fff;
     border: 2px solid #fff;
