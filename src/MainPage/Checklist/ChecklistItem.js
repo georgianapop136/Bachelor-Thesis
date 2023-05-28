@@ -42,20 +42,19 @@ const ChecklistItem = ({
     const isCompleted = task.checked ||
         (task.subtasks.length > 0 && task.subtasks.filter(subtask => subtask.checked).length === task.subtasks.length);
 
-
     useEffect(() => {
         let widthPercentage = 0;
 
-        if (task.subtasks.length > 0) {
+        if (task.subtasks.length > 0 || task.checked) {
             const elementPercentage = 100 / task.subtasks.length;
             const checkedSubtasks = task.subtasks.filter(subtask => subtask.checked).length;
-            widthPercentage = elementPercentage * checkedSubtasks;
+            widthPercentage = task.checked ? 100 : elementPercentage * checkedSubtasks;
         }
 
         const subtaskPercentage = document.getElementById('subtaskPercentage_' + task.id);
         subtaskPercentage.style.width = `${widthPercentage}%`;
 
-    }, [task, task.subtasks])
+    }, [task, task.subtasks, task.checked])
 
     return (
         <div className={`checklistItemContainer`}>
@@ -152,7 +151,7 @@ const ChecklistItem = ({
                         handleAddSubtask(subtaskName, task.id)
                         setSubtaskName("")
                         setDisplayAddSubtask(false)
-                    }} className="checkListAddButton" variant="contained">Add subtask</Button>
+                    }} variant="contained">Add subtask</Button>
                 </div> : null}
             </div>
         </div>

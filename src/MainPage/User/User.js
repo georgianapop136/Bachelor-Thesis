@@ -25,7 +25,13 @@ const AccountMenu = () => {
 
     return (
         <React.Fragment>
-            <Box sx={{display: 'flex', alignItems: 'center', textAlign: 'center', justifyContent:"end", padding:"10px 10px"}}>
+            <Box sx={{
+                display: 'flex',
+                alignItems: 'center',
+                textAlign: 'center',
+                justifyContent: "end",
+                marginRight: "20px"
+            }}>
                 <Tooltip title="Account settings">
                     <IconButton
                         onClick={handleClick}
@@ -35,7 +41,10 @@ const AccountMenu = () => {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                     >
-                        <Avatar sx={{width: 32, height: 32}}>M</Avatar>
+                        <Avatar sx={{
+                            width: 40,
+                            height: 40
+                        }}>{sessionStorage.getItem("loggedInUser")?.slice(0, 2)?.toUpperCase() || "G"}</Avatar>
                     </IconButton>
                 </Tooltip>
             </Box>
@@ -75,11 +84,13 @@ const AccountMenu = () => {
                 anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
             >
 
-                <MenuItem onClick={handleClose}>
-                    <ListItemIcon>
-                        <Logout fontSize="small" size="small"/>
-                    </ListItemIcon>
-                    Logout
+                <MenuItem>
+                    <div onClick={handleClose}>
+                        <ListItemIcon>
+                            <Logout fontSize="small" size="small"/>
+                        </ListItemIcon>
+                        Logout
+                    </div>
                 </MenuItem>
             </Menu>
         </React.Fragment>

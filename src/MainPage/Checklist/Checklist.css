@@ -55,8 +55,8 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     color: #344E41;
 }
 
@@ -66,8 +66,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 
@@ -77,12 +77,12 @@
 }
 
 .withBorderBottom {
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .withBorderBottomLeft {
-    border-bottom-left-radius: 20px;
+    border-bottom-left-radius: 5px;
 }
 
 .completedChecklist {
@@ -95,7 +95,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    border-top-left-radius: 20px;
+    border-top-left-radius: 5px;
 }
 
 .completedTextDecoration {
@@ -103,11 +103,11 @@
 }
 
 .withBorderTopRight {
-    border-top-right-radius: 20px;
+    border-top-right-radius: 5px;
 }
 
 .withBorderBottomRight {
-    border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 5px;
 }
 
 .subtaskStyle {
@@ -120,7 +120,6 @@
     display: flex;
     flex-direction: column;
     width: 90%;
-    border-radius: 30px;
 }
 
 .checklistItemContainerClosedHeight {
@@ -139,5 +138,4 @@
     margin-left: 200px;
     display: flex;
     align-items: center;
-
 }

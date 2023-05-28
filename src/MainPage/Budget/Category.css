@@ -1,0 +1,90 @@
+
+.categoryItemContainer {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.categoryStyle {
+    height: 50px;
+    background-color: #B5C49C;
+    margin-top: 10px;
+    padding: 5px 20px 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #344E41;
+}
+
+.categoryIconStyle {
+    margin-right: 10px;
+    height: 25px;
+}
+
+.categoryWithBorderBottom {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.categoryWithBorderBottomLeft {
+    border-bottom-left-radius: 5px;
+}
+
+.categoryName {
+    display: flex;
+    align-items: center;
+}
+
+.categoryActionContainer {
+    display: flex;
+    align-items: center;
+}
+
+.categoryTotalExpense {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 10px 0 10px;
+}
+
+.categoryExpenseContainer {
+    background-color: grey;
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.hiddenExpenseContainer {
+    height: 0;
+    overflow: hidden;
+}
+
+.categoryExpenseStyle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.categoryAddExpenseContainer {
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.categoryExpenseInput {
+    width: 500px !important;
+    height: 20px !important;
+}
+
+.categoryExpenseDetails {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

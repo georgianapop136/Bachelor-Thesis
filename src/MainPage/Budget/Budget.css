@@ -1,10 +1,18 @@
-.BudgetContainer {
-    padding: 40px;
+.budgetContainer {
     display: flex;
     flex-direction: column;
     gap: 10px;
     color: #344E41
+}
 
+.budgetBanner {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    height: 200px;
+    padding: 40px;
+    gap: 30px;
 }
 
 .BudgetEdit {
@@ -17,20 +25,85 @@
     height: 20px;
 }
 
-.BudgetForm {
+.budgetForm {
     display: flex;
-    gap: 25px;
+    justify-content: start;
+    gap: 250px;
+    flex-direction: row;
+    width: 100%;
 }
 
-.addExpenseContainer {
+.budgetContent {
     display: flex;
-    gap: 20px;
+    flex-direction: row;
+    padding: 40px;
+    width: 100%;
 }
 
-.budgetExpenseInput {
-    width: 350px !important;
-    height: 10px !important;
+.budgetCategories {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
 }
+
+.budgetSearchContainer {
+    width: 70%;
+    margin-bottom: 30px;
+}
+
+.addCategoryContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 30%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.categoryIconsContainer {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin: 20px 0 20px 0;
+}
+
+.categoryIconCardImg {
+    height: 100%;
+}
+
+.categoryIconSelected {
+    border: 2px solid black;
+}
+
+.categoryIconCard {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.addCategoryFormContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.addCategoryFieldWrapper {
+    width: 100%;
+}
+
+.addCategoryButtonWrapper {
+    width: 100%;
+}
+
 
 .budgetExpenseStyle {
     height: 30px;
