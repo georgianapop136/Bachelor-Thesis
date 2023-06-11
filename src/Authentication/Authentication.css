@@ -6,27 +6,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #DAD7CD;
+    background-color: #eaf5fa;
     overflow: hidden;
+    font-family: 'Alegreya', serif;
 }
 
 .welcome {
-    background-color: #B5C49C;
-    width: 650px;
-    height: 415px;
+    background-color: #cde1ea;
+    width: 700px;
+    height: 465px;
     border-radius: 5px;
     -moz-box-shadow: 0 0 3px #ccc;
-    -webkit-box-shadow: 0 0 3px #ccc;
-    box-shadow: 0 0 9px #ccc;
+    -webkit-box-shadow: 0 0 6px #86a0a8;
+    box-shadow: 0 0 6px #86a0a8;
+
 }
 
 .pinkbox {
     position: absolute;
     top: -10%;
     left: 5%;
-    background-color: #3A5A40;
-    width: 320px;
-    height: 500px;
+    background-color: #3C7391;
+    width: 370px;
+    height: 550px;
     border-radius: 5px;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     transition: all 0.5s ease-in-out;
@@ -58,13 +60,13 @@
     text-align: center;
     margin-top: 95px;
     text-transform: uppercase;
-    color: #DAD7CD;
+    color: white;
     font-size: 2em;
     letter-spacing: 8px;
 }
 
 .authTitle {
-    color: #588157;
+    color: #3C7391;
     font-size: 1.8em;
     line-height: 1.1em;
     letter-spacing: 3px;
@@ -85,12 +87,12 @@
 .authP {
     font-size: 0.7em;
     letter-spacing: 2px;
-    color: #588157;
+    color: #3C7391;
     text-align: center;
 }
 
 .authSpan {
-    color: #3A5A40;
+    color: #3C7391;
 }
 
 .flower {
@@ -113,7 +115,7 @@
 
 .authButton {
     padding: 12px;
-    font-family: sans-serif;
+    font-family: 'Alegreya', serif;
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 11px;
@@ -125,17 +127,17 @@
 }
 
 .authButton:hover {
-    background: #3A5A40;
-    color: #DAD7CD;
+    background: #3C7391;
+    color: white;
     transition: background-color 1s ease-out;
 }
 
 
     .authButton2 {
         margin-top: 3%;
-        background: #DAD7CD;
-        color: #3A5A40;
-        border: solid 1px #B5C49C;
+        background: white;
+        color: #3C7391;
+        border: solid 1px #3C7391 ;
     }
 
 
@@ -162,19 +164,19 @@
 .authSubmit {
     margin-top: 25px;
     padding: 12px;
-    border-color: #B5C49C;
+    border-color: #3C7391 ;
 }
 
 .authSubmit:hover {
-    background: #B5C49C;
-    border-color: #B5C49C;
-    color: #3A5A40;
+    background: #cde1ea;
+    border-color: #cde1ea ;
+    color: #3C7391;
 }
 
 .authInput {
-    background: #3A5A40;
+    background: #3C7391;
     width: 65%;
-    color: #DAD7CD;
+    color: white;
     border: none !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
     padding: 9px;
@@ -182,16 +184,16 @@
 }
 
 .authInput::placeholder {
-    color: #DAD7CD;
+    color: white;
     letter-spacing: 2px;
     font-size: 1.3em;
     font-weight: 100;
 }
 
 .authInput:focus {
-    color: #DAD7CD;
+    color: white;
     outline: none;
-    border-bottom: 1.2px solid rgba(255, 105, 180, 0.7);
+    /*border-bottom: 1.2px solid rgba(255, 105, 180, 0.7);*/
     font-size: 1em;
     transition: 0.8s all ease;
 }
@@ -201,8 +203,8 @@
 }
 
 .authLabel {
-    font-family: sans-serif;
-    color: #DAD7CD;
+    font-family: 'Alegreya', serif;
+    color: white;
     font-size: 0.8em;
     letter-spacing: 1px;
 }
@@ -217,11 +219,11 @@
 
 .authInput[type="checkbox"] {
     width: 15px;
-    background: #ff69b4;
+    background: #cde1ea;
 }
 
 .authCheckbox input[type="checkbox"]:checked+label {
-    color: #ff69b4;
+    color: #cde1ea;
     transition: 0.5s all ease;
 }
 

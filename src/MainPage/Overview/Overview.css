@@ -66,3 +66,60 @@
     width: 80%;
     height: 80%;
 }
+
+.overviewSeparator {
+    width: 100%;
+    border-top: 1px solid #3C7391;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.upcomingChecklistChartContainer {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 15px;
+}
+
+.upcomingChecklistItemList {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.upcomingChecklistItemContainer {
+    width: 100%;
+    background-color: #DEE8ED;
+    padding: 5px 20px 5px 20px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+.upcomingChecklistNameWrapper {
+    align-items: center;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: start;
+}
+
+.upcomingChecklistItemIcon {
+    height: 25px;
+}
+
+.myBudgetChartContainer {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.myBudgetChartWrapper {
+    height: 220px;
+}

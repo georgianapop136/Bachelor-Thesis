@@ -1,32 +1,28 @@
 .invitationContainer {
     display: flex;
     justify-content: center;
-    background-color: #DAD7CD;
     height: 532px;
 }
 
 .invitationBuilder {
-    width: 1350px;
-    height: 650px;
+    width: 1100px;
+    height: 550px;
     display: flex;
     background-color: white;
-    border-radius:20px;
-    /*box-shadow: -5px -5px 5px 0px rgba(0, 0, 0, 0.1);*/
-    -moz-box-shadow: 0 0 3px #ccc;
-    -webkit-box-shadow: 0 0 3px #ccc;
-    box-shadow: 0 0 15px #ccc;
-    margin-top: 17px;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .09);
+    margin-top: 45px;
 }
 
 .invitationCustomizer {
     width: 30%;
     height: 100%;
-    background-color: #B5C49C;
+    background-color: #CDE1EA;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     align-items: start;
     padding-left: 30px;
 }
@@ -44,8 +40,8 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 
@@ -56,6 +52,7 @@
     height: 25%;
     align-items: center;
     font-size: 14px;
+    color: #073952;
 }
 
 .invitationThemeImg {
@@ -63,36 +60,56 @@
 }
 
 .invitationThemeSelected {
-    border: 2px solid black;
+    border: 3px solid white;
 }
 
 
 .invitationLook {
     width: 70%;
     height: 100%;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
     overflow: auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.flowers1{
-    /*background: url(../../Pictures/flowersnew.jpg) no-repeat center center/cover;*/
-}
 
 .invitationCustomizerTitle{
     font-size: 18px;
-    font-family: "Cambria";
+    font-family: 'Alegreya', serif;
+    color: #073952;
 }
 
 .invitationContent{
     height: 80%;
     background-color: white;
     width: 80%;
-    border-radius: 10px;
+    border-radius: 5px;
     white-space: pre-wrap;
 }
+
+.invitationLook::-webkit-scrollbar {
+    width: 6px;
+}
+
+.invitationLook::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.invitationLook::-webkit-scrollbar-thumb {
+    background-color: #3C7391 ;
+    border-radius: 10px;
+
+}
+
+.invitationLook::-webkit-scrollbar-thumb:hover {
+    background-color: #1E4E8C;
+}
+
+
+
+
+
 
 

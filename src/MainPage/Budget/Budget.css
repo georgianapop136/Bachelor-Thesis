@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-    color: #344E41
 }
 
 .budgetBanner {
@@ -16,6 +15,8 @@
     margin-top: 40px;
     margin-left: 40px;
     border-radius: 2px;
+    color: #3C7391;
+
 }
 
 .BudgetEdit {
@@ -64,6 +65,7 @@
     box-shadow: 0 2px 5px rgba(0,0,0,.09);
     border-radius: 5px;
     max-height: 318px;
+    color: #3C7391;
 }
 
 .categoryIconsContainer {
@@ -78,7 +80,7 @@
 }
 
 .categoryIconSelected {
-    border: 2px solid black;
+    border: 2px solid #ddecf3;
 }
 
 .categoryIconCard {
@@ -88,7 +90,7 @@
     flex-direction: column;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,.09);
+    box-shadow: 4px 4px 4px rgba(0,0,0,.09);
     overflow: hidden;
 }
 
@@ -111,7 +113,6 @@
 
 .budgetExpenseStyle {
     height: 30px;
-    background-color: #B5C49C;
     margin-top: 10px;
     border-radius: 30px;
     padding: 5px 20px 5px 20px;
@@ -125,8 +126,10 @@
     gap: 15px;
     display: flex;
     flex-direction: column;
+    color: #3C7391;
 }
 
 .budgetExpenseName{
     width: 70%;
+
 }

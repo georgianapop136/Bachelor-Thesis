@@ -1,7 +1,8 @@
 .landingPageContainer{
-   background-color: #DAD7CD;
+   background-color: #eaf5fa;
     height: 100vh;
     overflow: hidden;
+    font-family: 'Alegreya', serif;
 }
 
 .landingPageJoin{
@@ -111,7 +112,7 @@
 }
 
 .customCard-info h1 {
-    font-family: "Playfair Display";
+    font-family: 'Alegreya', serif;
     font-size: 36px;
     font-weight: 700;
     text-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px;
@@ -140,12 +141,12 @@
     stroke-dasharray: 140 540;
     stroke-dashoffset: -474;
     stroke-width: 8px;
-    stroke: #588157;
+    stroke: #3C7391;
 }
 
 .text {
-    color: #3A5A40;
-    font-family: 'Roboto Condensed';
+    color: #3C7391;
+    font-family: 'Alegreya', serif;
     font-size: 22px;
     letter-spacing: 8px;
     line-height: 32px;

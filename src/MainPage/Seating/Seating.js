@@ -163,7 +163,7 @@ const Seating = () => {
                                                  {...provided.droppableProps}
                                                  style={{
                                                      ...provided.droppableProps.style,
-                                                     zIndex: -1, // Modify the zIndex values as per your requirements
+                                                     zIndex: -1,
                                                  }}
                                                  className="seatingCard">
                                                 <div className="seatingCardHeader">

@@ -31,17 +31,17 @@
 
 .seatingCardHeader {
     height: 55px;
-    background-color: #344E41;
+    background-color: #3C7391;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #DAD7CD;
+    color: #EAF5FA;
 }
 
 .seatingCardBody {
-    background-color: #B5C49C;
+    background-color: white;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     height: 100%;
@@ -52,6 +52,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.09);
 }
 
 .seatingAddTable {
@@ -63,7 +64,7 @@
     width: 170px;
     padding: 5px;
     height: 70px;
-    background-color: lightgray;
+    background-color: #CDE1EA;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -78,7 +79,9 @@
 }
 
 .seatingGuestText {
-    font-size: 12px;
+    font-size: 13px;
+    color: #073952;
+    font-weight: bold;
 }
 
 .seatingGuestListContainer {
@@ -90,21 +93,24 @@
 
 .seatingGuestListHeader {
     height: 55px;
-    background-color: #344E41;
+    background-color: #3C7391;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #DAD7CD;
+    color: white;
+
 }
 
 .seatingGuestListBody {
-    background-color: #B5C49C;
+    background-color: white;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     height: 495px;
     overflow: auto;
     width: 100%;
     padding: 10px;
+    box-shadow: 1px 2px 5px rgba(0,0,0,.09);
+
 }

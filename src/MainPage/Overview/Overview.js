@@ -5,18 +5,22 @@ import BudgetCategoriesChart from "./BudgetCharts/BudgetCategoriesChart";
 import Clock from "./WeddingTimerChart/WeddingDateTimer";
 import dayjs from "dayjs";
 import GuestsCharts from "./GuestCharts/GuestsCharts";
+import UpcomingChecklistChart from "./ChecklistCharts/UpcomingChecklistChart";
+import MyBudgetChart from "./BudgetCharts/MyBudgetChart";
 
 const Overview = () => {
     const [checklist, setChecklist] = useState([]);
     const [categories, setCategories] = useState([]);
     const [invitationDate, setInvitationDate] = useState(dayjs());
     const [guestList, setGuestList] = useState([]);
+    const [budget, setBudget] = useState(0);
 
     useEffect(() => {
         getChecklist()
         getCategories()
         loadInvitation()
         loadGuestList()
+        loadBudget()
     }, []);
 
     const getChecklist = () => {
@@ -103,10 +107,36 @@ const Overview = () => {
         }
     }
 
+    const loadBudget = () => {
+        try {
+            const userEmail = sessionStorage.getItem("loggedInUser");
+
+            fetch('http://localhost:3001/getUser', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({email: userEmail}),
+            }).then(response => {
+                if (response.status === 200) {
+                    response.json().then(data => {
+                        if (data.user.budget !== null) {
+                            setBudget(data.user.budget)
+                        }
+                    })
+                }
+            });
+        } catch (error) {
+            console.error('Error while fetching data', error);
+        }
+    }
+
 
 
     return (
         <div className="overviewContainer">
+            <h1 className="overviewChartsTitles">Overview</h1>
+            <div className="overviewSeparator" />
             <div className="overviewRow">
                 <Clock deadline={invitationDate}/>
                 <GuestsCharts guestList={guestList}/>
@@ -114,6 +144,10 @@ const Overview = () => {
             <div className="overviewRow">
                 <ChecklistProgressChart checklist={checklist}/>
                 <BudgetCategoriesChart categories={categories}/>
+            </div>
+            <div className="overviewRow">
+                <UpcomingChecklistChart checklist={checklist}/>
+                <MyBudgetChart categories={categories} budget={budget}/>
             </div>
         </div>
     )

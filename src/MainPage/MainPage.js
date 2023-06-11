@@ -5,12 +5,12 @@ import User from "./User/User";
 import Budget from "./Budget/Budget";
 import Invitation from "./Invitation/Invitation";
 import GuestList from "./GuestList/GuestList";
-import BudgetWhiteImg from "../Pictures/BudgetWhiteImg.png";
-import ChecklistWhiteImg from "../Pictures/ChecklistWhiteImg.png";
-import SeatingWhiteImg from "../Pictures/SeatingWhiteImg.png";
-import InvitationWhiteImg from "../Pictures/InvitationWhiteImg.png";
-import OverviewWhiteImg from "../Pictures/OverviewWhiteImg.png";
-import GuestListWhiteImg from "../Pictures/GuestListWhiteImg.png";
+import BudgetImg from "../Pictures/BudgetImg.png";
+import ChecklistImg from "../Pictures/ChecklistImg.png";
+import SeatingImg from "../Pictures/SeatingImg.png";
+import InvitationImg from "../Pictures/InvitationImg.png";
+import OverviewImg from "../Pictures/OverviewImg.png";
+import GuestlistImg from "../Pictures/GuestlistImg.png";
 import Seating from "./Seating/Seating";
 import Overview from "./Overview/Overview";
 import {useNavigate} from "react-router";
@@ -29,11 +29,11 @@ const MainPage = () => {
             case 3:
                 return <Budget/>;
             case 4:
-                return <Seating/>;
-            case 5:
                 return <Invitation/>;
-            case 6:
+            case 5:
                 return <GuestList/>;
+            case 6:
+                return <Seating/>;
             default:
                 return <Overview/>;
         }
@@ -66,7 +66,7 @@ const MainPage = () => {
                         onClick={() => {
                             setSelectedOption(1)
                         }}>
-                        <img className="imgStyles" src={OverviewWhiteImg}/>
+                        <img className="imgStyles" src={OverviewImg}/>
 
                         <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Overview</span>
                     </div>
@@ -76,7 +76,7 @@ const MainPage = () => {
                         onClick={() => {
                             setSelectedOption(2)
                         }}>
-                        <img className="imgStyles" src={ChecklistWhiteImg}/>
+                        <img className="imgStyles" src={ChecklistImg}/>
                         <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Checklist</span>
 
                     </div>
@@ -86,7 +86,7 @@ const MainPage = () => {
                         onClick={() => {
                             setSelectedOption(3)
                         }}>
-                        <img className="imgStyles" src={BudgetWhiteImg}/>
+                        <img className="imgStyles" src={BudgetImg}/>
                         <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Budget</span>
                     </div>
 
@@ -95,9 +95,8 @@ const MainPage = () => {
                         onClick={() => {
                             setSelectedOption(4)
                         }}>
-                        <img className="imgStyles" src={SeatingWhiteImg}/>
-                        <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Seating</span>
-
+                        <img className="imgStyles" src={InvitationImg}/>
+                        <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Invitation</span>
                     </div>
 
                     <div
@@ -105,17 +104,19 @@ const MainPage = () => {
                         onClick={() => {
                             setSelectedOption(5)
                         }}>
-                        <img className="imgStyles" src={InvitationWhiteImg}/>
-                        <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Invitation</span>
+                        <img className="imgStyles" src={GuestlistImg}/>
+                        <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Guest List</span>
                     </div>
+
 
                     <div
                         className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"} ${selectedOption === 6 ? "isSelected" : null}`}
                         onClick={() => {
                             setSelectedOption(6)
                         }}>
-                        <img className="imgStyles" src={GuestListWhiteImg}/>
-                        <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Guest List</span>
+                        <img className="imgStyles" src={SeatingImg}/>
+                        <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Seating</span>
+
                     </div>
                 </div>
 

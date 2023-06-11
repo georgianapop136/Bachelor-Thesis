@@ -5,7 +5,7 @@ import ChecklistItem from "./ChecklistItem";
 import ChecklistProgress from "./ChecklistProgress";
 
 
-const months = [
+export const months = [
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];
@@ -184,7 +184,7 @@ const Checklist = () => {
             <ChecklistProgress checklist={checklist}/>
             <div className="checklistSeparator"/>
             <div className="sortTaskContainer">
-                <h5 className="checklistTitles">Sort by:</h5>
+                <h5 className="checklistTitles">Sort by</h5>
                 <div className="checklistSortOptionsContainer">
                     <div
                         className={`checklistSortOption checklistLeftSortOption ${selectedSortOption === 1 ? 'checklistSelectedSortOption' : null}`}

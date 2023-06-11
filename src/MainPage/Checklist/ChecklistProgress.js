@@ -28,7 +28,7 @@ const ChecklistProgress = ({checklist}) => {
     }, [checklist])
 
     return (
-        <div className="checklistProgressBarContainer">
+        <div className="checklistProgressBarContainer checklistTitles">
             <h1 className="checklistTitles">Checklist</h1>
             <div>
                 <p>You've completed {checklist.filter(item => item.checked).length} out of {checklist.length} tasks</p>

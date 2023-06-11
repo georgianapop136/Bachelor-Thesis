@@ -126,9 +126,11 @@
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    -moz-box-shadow: 0 0 3px #ccc;
-    -webkit-box-shadow: 0 0 3px #ccc;
-    box-shadow: 0 0 9px #ccc;
+    /*-moz-box-shadow: 0 0 3px #ccc;*/
+    /*-webkit-box-shadow: 0 0 3px #ccc;*/
+    /*box-shadow: 0 0 9px #ccc;*/
+    /*box-shadow: 3px 3px 2px rgba(11, 41, 52, 0.1);*/
+
 }
 
 .checklistItemContainerClosedHeight {
@@ -146,6 +148,7 @@
     flex-direction: column;
     gap: 20px;
     margin-top: 20px;
+    color: #3C7391;
 }
 
 .checklistDate {
@@ -196,6 +199,7 @@
 
 .checklistSortOptionsContainer {
     display: flex;
+    color: #3C7391;
 }
 
 .checklistRightSortOption {
@@ -214,6 +218,7 @@
 
 .checklistSelectedSortOption {
     background-color: #3C7391;
+    color: white;
 }
 
 .checklistTitles {
