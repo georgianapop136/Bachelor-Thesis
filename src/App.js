@@ -10,12 +10,10 @@ import RSVP from "./RSVP/RSVP";
 const theme = createTheme({
     palette: {
         primary: {
-            // Purple and green play nicely together.
-            main: '#3a5a40',
+            main: '#3C7391',
         },
         secondary: {
-            // This is green.A700 as hex.
-            main: '#fff',
+            main: '#DEE8ED',
         },
     },
 });

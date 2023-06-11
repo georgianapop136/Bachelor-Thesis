@@ -17,7 +17,7 @@ import {useNavigate} from "react-router";
 
 const MainPage = () => {
     const navigate = useNavigate();
-    const [selectedOption, setSelectedOption] = useState(3);
+    const [selectedOption, setSelectedOption] = useState(1);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const getContent = () => {
@@ -35,7 +35,7 @@ const MainPage = () => {
             case 6:
                 return <GuestList/>;
             default:
-                return <Overview />;
+                return <Overview/>;
         }
     }
 
@@ -60,56 +60,63 @@ const MainPage = () => {
                         d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"/>
                 </svg>
 
+                <div className="navigationButtonStyle">
+                    <div
+                        className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"} ${selectedOption === 1 ? "isSelected" : null}`}
+                        onClick={() => {
+                            setSelectedOption(1)
+                        }}>
+                        <img className="imgStyles" src={OverviewWhiteImg}/>
 
-                <div className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"}`}
-                     onClick={() => {
-                         setSelectedOption(1)
-                     }}>
-                    <img className="imgStyles" src={OverviewWhiteImg}/>
+                        <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Overview</span>
+                    </div>
 
-                    <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Overview</span>
-                </div>
+                    <div
+                        className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"} ${selectedOption === 2 ? "isSelected" : null}`}
+                        onClick={() => {
+                            setSelectedOption(2)
+                        }}>
+                        <img className="imgStyles" src={ChecklistWhiteImg}/>
+                        <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Checklist</span>
 
-                <div className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"}`}
-                     onClick={() => {
-                         setSelectedOption(2)
-                     }}>
-                    <img className="imgStyles" src={ChecklistWhiteImg}/>
-                    <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Checklist</span>
+                    </div>
 
-                </div>
+                    <div
+                        className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"} ${selectedOption === 3 ? "isSelected" : null}`}
+                        onClick={() => {
+                            setSelectedOption(3)
+                        }}>
+                        <img className="imgStyles" src={BudgetWhiteImg}/>
+                        <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Budget</span>
+                    </div>
 
-                <div className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"}`}
-                     onClick={() => {
-                         setSelectedOption(3)
-                     }}>
-                    <img className="imgStyles" src={BudgetWhiteImg}/>
-                    <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Budget</span>
-                </div>
+                    <div
+                        className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"} ${selectedOption === 4 ? "isSelected" : null}`}
+                        onClick={() => {
+                            setSelectedOption(4)
+                        }}>
+                        <img className="imgStyles" src={SeatingWhiteImg}/>
+                        <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Seating</span>
 
-                <div className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"}`}
-                     onClick={() => {
-                         setSelectedOption(4)
-                     }}>
-                    <img className="imgStyles" src={SeatingWhiteImg}/>
-                    <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Seating</span>
+                    </div>
 
-                </div>
+                    <div
+                        className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"} ${selectedOption === 5 ? "isSelected" : null}`}
+                        onClick={() => {
+                            setSelectedOption(5)
+                        }}>
+                        <img className="imgStyles" src={InvitationWhiteImg}/>
+                        <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Invitation</span>
+                    </div>
 
-                <div className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"}`}
-                     onClick={() => {
-                         setSelectedOption(5)
-                     }}>
-                    <img className="imgStyles" src={InvitationWhiteImg}/>
-                    <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Invitation</span>
-                </div>
-
-                <div className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"}`}
-                     onClick={() => {
-                         setSelectedOption(6)
-                     }}>
-                    <img className="imgStyles" src={GuestListWhiteImg}/>
-                    <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Guest List</span>
+                    <div
+                        className={`navigationButton ${isMenuOpen ? "navigationButtonOpen" : "navigationButtonClosed"} ${selectedOption === 6 ? "isSelected" : null}`}
+                        onClick={() => {
+                            setSelectedOption(6)
+                        }}>
+                        <img className="imgStyles" src={GuestListWhiteImg}/>
+                        <span className={`navigationItem ${isMenuOpen ? "" : "navigationItemHidden"}`}>Guest List</span>
+                    </div>
                 </div>
 
             </div>
@@ -118,7 +125,8 @@ const MainPage = () => {
                 {getContent()}
             </div>
         </div>
-    );
+    )
+        ;
 }
 
 export default MainPage;

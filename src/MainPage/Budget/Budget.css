@@ -1,24 +1,26 @@
 .budgetContainer {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
     color: #344E41
 }
 
 .budgetBanner {
     display: flex;
     flex-direction: column;
-    background-color: white;
-    width: 100%;
+    background-color: #cde1ea;
+    width: 94.5%;
     height: 200px;
     padding: 40px;
     gap: 30px;
+    margin-top: 40px;
+    margin-left: 40px;
+    border-radius: 2px;
 }
 
 .BudgetEdit {
     display: flex;
     justify-content: space-between;
-
 }
 
 .TextFieldWrapper {
@@ -55,11 +57,13 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 30%;
+    width: 45%;
     background-color: white;
     padding: 20px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    /*box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);*/
+    box-shadow: 0 2px 5px rgba(0,0,0,.09);
     border-radius: 5px;
+    max-height: 318px;
 }
 
 .categoryIconsContainer {
@@ -84,7 +88,7 @@
     flex-direction: column;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,.09);
     overflow: hidden;
 }
 
@@ -118,6 +122,9 @@
 
 .budgetExpenseContainer {
     width: 80%;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .budgetExpenseName{

@@ -1,8 +1,8 @@
 import {useEffect, useRef} from "react";
 import {Chart} from "chart.js/auto";
-import "./Overview.css"
+import "../Overview.css"
 
-const ChecklistChart = ({checklist}) => {
+const ConfirmedGuestsChart = ({guests}) => {
     const chartRef = useRef(null);
     let chartInstance = null;
 
@@ -16,39 +16,34 @@ const ChecklistChart = ({checklist}) => {
                 chartInstance.destroy();
             }
         };
-    }, []);
+    }, [guests]);
 
 
     const calculateCharts = () => {
-        let completed = 0;
-        let notCompleted = 0;
+        let coming = 0;
+        let notComing = 0;
+        let unknown = 0;
 
-        checklist.forEach(item => {
-            if (item.checked === true) {
-                completed++;
-            } else {
-                notCompleted++;
-            }
+        guests.forEach(guest => {
+            if (guest.confirmed) {
+                coming++;
+            } else if (guest.confirmed === false) {
+                notComing++;
+            } else {unknown++;}
         })
 
-        return [completed, notCompleted];
+        return [coming, notComing, unknown];
     }
 
     const initializeChart = () => {
         const chartCanvas = chartRef.current.getContext('2d');
         const data = {
-            labels: ['Completed', 'Not Completed'],
+            labels: ["Coming", "Not coming", "Unknown"],
             datasets: [
                 {
                     data: calculateCharts(), // Example data values for each label
-                    backgroundColor: [
-                        '#FF6384',
-                        '#36A2EB'
-                    ],
-                    hoverBackgroundColor: [
-                        '#FF6384',
-                        '#36A2EB'
-                    ],
+                    backgroundColor: ["#36A2EB", "#033c62", "#000000"],
+                    hoverBackgroundColor: ["#36A2EB", "#033c62", "#000000"],
                 },
             ],
         };
@@ -59,6 +54,7 @@ const ChecklistChart = ({checklist}) => {
             // You can customize other options as needed
         };
 
+
         chartInstance = new Chart(chartCanvas, {
             type: 'pie',
             data: data,
@@ -67,11 +63,11 @@ const ChecklistChart = ({checklist}) => {
 
     };
 
-    return <div className="chartContainer">
+    return <div className="confirmedGuestListChartContainer">
         <canvas ref={chartRef}/>
     </div>;
 }
-export default ChecklistChart;
+export default ConfirmedGuestsChart;
 
 
 

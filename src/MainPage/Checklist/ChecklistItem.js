@@ -60,7 +60,7 @@ const ChecklistItem = ({
         <div className={`checklistItemContainer`}>
             <div className={`checkListTaskStyle ${isOpen ? '' : 'withBorderBottom'}`}>
                 <div id={"subtaskPercentage_" + task.id}
-                     className={`subtaskPercentageStyle ${isOpen ? '' : 'withBorderBottomLeft'} ${isCompleted ? 'completedChecklist withBorderTopRight' : ''} ${!isOpen && isCompleted ? 'withBorderBottomRight' : ''}`}/>
+                     className={`subtaskPercentageStyle ${isCompleted ? 'completedChecklist withBorderTopRight' : ''} ${!isOpen && isCompleted ? 'withBorderBottomRight' : ''}`}/>
                 <FormControlLabel control={
                     <Checkbox
                         onClick={() => handleCheckbox(task.id, !task.checked)}

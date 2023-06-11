@@ -10,11 +10,13 @@
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: #99ac92;
+    background-color: #ffffff;
     transition: width 0.5s ease-in-out;
-    border-right: 1px solid #f3f6f3;
+    /*border-right: 1px solid lightgray;*/
     /*border-bottom-right-radius: 9px;*/
     /*border-top-right-radius: 9px;*/
+    box-shadow: 0 2px 5px rgba(0,0,0,.09);
+    z-index: 1000;
 }
 
 .mainPageNavigationOpen {
@@ -22,19 +24,23 @@
 }
 
 .mainPageNavigationClosed {
-    width: 80px;
+    width: 70px;
 }
 
 .mainPageContent {
-    background-color: #DAD7CD;;
+    background-color: #eaf5fa;
+    /*background-color: #e4f1f6;*/
+    /*background-color: #f8f8f8;*/
     width: 100%;
     min-height: 100%;
     overflow: auto;
 }
 
 .mainPageHeader {
-    background-color: #99ac92;
-    height: 50px;
+    background-color: #FFFFFF;
+    height: 75px;
+    /*border-bottom: 1px solid lightgray;*/
+    box-shadow: 0 2px 5px rgba(0,0,0,.09);
 }
 
 .ham {
@@ -59,7 +65,7 @@
 .line {
     fill: none;
     transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-    stroke: #3a5a40;
+    stroke: #3C7391;
     stroke-width: 5.5;
     stroke-linecap: round;
 }
@@ -82,43 +88,62 @@
 
 .mainPageSvg {
     position: absolute;
-    right: -1px;
-    top: -5px;
+    right: 5px;
+    top: 59px;
 }
 
 .imgStyles {
-    height: 24px;
-    width: 24px;
+    height: 28px;
+    width: 28px;
     margin-left: 2px;
 }
 
 .navigationButton {
-    padding: 5px;
+    padding: 6px 3px 3px 4px;
     cursor: pointer;
-    border: 1px solid #DAD7CD;
+    /*border: 1px solid #414140;*/
     transition: width 0.5s ease-in-out;;
     display: flex;
     flex-direction: row;
-    gap: 10px;
-    color: #f6f8f7;
-    background-color: #588157;
+    width: 100%;
+    gap: 15px;
+    /*color: #ddeee6;*/
+    /*background-color: #1f1e1e;*/
 }
 
+.navigationButtonStyle{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+
 .navigationButton:hover {
-    background-color: #344E41;
-    color: #DAD7CD;
-    border: 1px solid #3a5a40;
+    background-color: #ddecf3;
+    /*color: #DAD7CD;*/
+    /*border: 1px solid #000000;*/
     transition: width 0.5s ease-in-out;;
 }
 
 .navigationButtonOpen {
-    border-radius: 5px;
-    width: 130px;
+    /*border-radius: 5px;*/
+    /*width: 130px;*/
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.isSelected {
+    border-left: 5px solid #3C7391;
 }
 
 .navigationButtonClosed {
-    border-radius: 5px;
-    width: 40px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .navigationItem {

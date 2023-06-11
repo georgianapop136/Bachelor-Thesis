@@ -2,20 +2,18 @@
 .categoryItemContainer {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    border-radius: 5px;
 }
 
 .categoryStyle {
     height: 50px;
-    background-color: #B5C49C;
-    margin-top: 10px;
+    background-color: #cde1ea;
     padding: 5px 20px 5px 20px;
     display: flex;
     justify-content: space-between;
     width: 100%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    color: #344E41;
 }
 
 .categoryIconStyle {
@@ -52,7 +50,7 @@
 }
 
 .categoryExpenseContainer {
-    background-color: grey;
+    background-color: white;
     padding: 20px 20px 20px 20px;
     display: flex;
     flex-direction: column;

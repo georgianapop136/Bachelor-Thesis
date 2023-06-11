@@ -3,3 +3,66 @@
     width: 500px;
     height: 300px;
 }
+
+.overviewContainer {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.overviewRow {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+}
+
+.overviewChartCard {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.09);
+    border-radius: 5px;
+    height: 318px;
+}
+
+.overviewChecklistProgressChart {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.overviewBudgetBarChart {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.overviewChartsTitles {
+    color: #3C7391;
+}
+
+.overviewGuestCharts {
+    width : 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.overviewGuestChartWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    width: 50%;
+}
+
+.confirmedGuestListChartContainer {
+    width: 80%;
+    height: 80%;
+}

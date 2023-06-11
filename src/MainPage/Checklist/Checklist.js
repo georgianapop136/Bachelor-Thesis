@@ -1,18 +1,23 @@
-import {Button, Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Select, TextField} from "@mui/material";
+import {Button, FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
 import "./Checklist.css";
 import {useEffect, useState} from "react";
-import IconButton from "@mui/material/IconButton";
-import DeleteIcon from '@mui/icons-material/Delete';
 import ChecklistItem from "./ChecklistItem";
+import ChecklistProgress from "./ChecklistProgress";
 
+
+const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+];
 
 const Checklist = () => {
     const [month, setMonth] = useState('');
     const [task, setTask] = useState('');
     const [checklist, setChecklist] = useState([]);
+    const [selectedSortOption, setSelectedSortOption] = useState(1);
 
     useEffect(() => {
-       getChecklist()
+        getChecklist()
     }, []);
 
     const getChecklist = () => {
@@ -25,7 +30,7 @@ const Checklist = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({userEmail: loggedInUser}),
-            }).then(async(response) => {
+            }).then(async (response) => {
                 if (response.status === 200) {
                     const result = await response.json();
                     setChecklist(result);
@@ -52,7 +57,7 @@ const Checklist = () => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({name: task, month: month, userEmail: loggedInUser}),
-        }).then(async(response) => {
+        }).then(async (response) => {
             if (response.status === 200) {
                 setTask("");
                 setMonth("")
@@ -70,7 +75,7 @@ const Checklist = () => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({id: itemId}),
-        }).then(async(response) => {
+        }).then(async (response) => {
             if (response.status === 200) {
                 getChecklist()
             }
@@ -84,7 +89,7 @@ const Checklist = () => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({id: itemId, isChecked}),
-        }).then(async(response) => {
+        }).then(async (response) => {
             if (response.status === 200) {
                 getChecklist()
             }
@@ -98,7 +103,7 @@ const Checklist = () => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({name: subtaskName, checklistId: taskId}),
-        }).then(async(response) => {
+        }).then(async (response) => {
             if (response.status === 200) {
                 getChecklist()
             }
@@ -114,7 +119,7 @@ const Checklist = () => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({id: subtaskId}),
-        }).then(async(response) => {
+        }).then(async (response) => {
             if (response.status === 200) {
                 getChecklist()
             }
@@ -130,7 +135,7 @@ const Checklist = () => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({id: itemId, isChecked, taskId}),
-        }).then(async(response) => {
+        }).then(async (response) => {
             if (response.status === 200) {
                 getChecklist()
             }
@@ -138,53 +143,120 @@ const Checklist = () => {
     }
 
 
+    const handleChecklistSort = (item1, item2) => {
+        if (selectedSortOption === 1) {
+            const monthA = months.indexOf(item1.month);
+            const monthB = months.indexOf(item2.month);
+            return monthA - monthB;
+        } else if (selectedSortOption === 2) {
+            const valueA = item1.checked;
+            const valueB = item2.checked;
+
+            if (valueA === valueB) {
+                return 0;
+            }
+
+            if (valueA) {
+                return -1;
+            }
+
+            return 1;
+        } else {
+            const valueA = item1.checked;
+            const valueB = item2.checked;
+
+            if (valueA === valueB) {
+                return 0;
+            }
+
+            if (valueA) {
+                return 1;
+            }
+
+            return -1;
+        }
+
+    }
+
+
     return (
         <div className="checkListContainer">
-            <div className="addTaskContainer">
-                <TextField
-                    onChange={handleTaskChange}
-                    className="checkListTaskInput"
-                    id="outlined-basic"
-                    label="Task name"
-                    value={task}
-                    variant="outlined"/>
-                <FormControl fullWidth className="checkListMonthSelector">
-                    <InputLabel id="demo-simple-select-label">Month</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={month}
-                        label="Month"
-                        onChange={handleChange}
+            <ChecklistProgress checklist={checklist}/>
+            <div className="checklistSeparator"/>
+            <div className="sortTaskContainer">
+                <h5 className="checklistTitles">Sort by:</h5>
+                <div className="checklistSortOptionsContainer">
+                    <div
+                        className={`checklistSortOption checklistLeftSortOption ${selectedSortOption === 1 ? 'checklistSelectedSortOption' : null}`}
+                        onClick={() => setSelectedSortOption(1)}
                     >
-                        <MenuItem value="January">January</MenuItem>
-                        <MenuItem value="February">February</MenuItem>
-                        <MenuItem value="March">March</MenuItem>
-                        <MenuItem value="April">April</MenuItem>
-                        <MenuItem value="May">May</MenuItem>
-                        <MenuItem value="June">June</MenuItem>
-                        <MenuItem value="July">July</MenuItem>
-                        <MenuItem value="August">August</MenuItem>
-                        <MenuItem value="September">September</MenuItem>
-                        <MenuItem value="October">October</MenuItem>
-                        <MenuItem value="November">November</MenuItem>
-                        <MenuItem value="December">December</MenuItem>
-                    </Select>
-                </FormControl>
+                        Month
+                    </div>
+                    <div
+                        className={`checklistSortOption ${selectedSortOption === 2 ? 'checklistSelectedSortOption' : null}`}
+                        onClick={() => setSelectedSortOption(2)}
+                    >
+                        Completed
+                    </div>
+                    <div
+                        className={`checklistSortOption checklistRightSortOption ${selectedSortOption === 3 ? 'checklistSelectedSortOption' : null}`}
+                        onClick={() => setSelectedSortOption(3)}
+                    >
+                        To Do
+                    </div>
+                </div>
 
-                <Button onClick={handleAddTask} className="checkListAddButton" variant="contained">Add task</Button>
             </div>
+            <div className="addTaskWrapper">
+                <h5 className="checklistTitles">Create task</h5>
+                <div className="addTaskContainer">
+                    <TextField
+                        onChange={handleTaskChange}
+                        className="checkListTaskInput"
+                        label="Task name"
+                        value={task}
+                        variant="outlined"/>
+                    <FormControl fullWidth className="checkListMonthSelector">
+                        <InputLabel id="demo-simple-select-label">Month</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={month}
+                            label="Month"
+                            onChange={handleChange}
+                        >
+                            <MenuItem value="January">January</MenuItem>
+                            <MenuItem value="February">February</MenuItem>
+                            <MenuItem value="March">March</MenuItem>
+                            <MenuItem value="April">April</MenuItem>
+                            <MenuItem value="May">May</MenuItem>
+                            <MenuItem value="June">June</MenuItem>
+                            <MenuItem value="July">July</MenuItem>
+                            <MenuItem value="August">August</MenuItem>
+                            <MenuItem value="September">September</MenuItem>
+                            <MenuItem value="October">October</MenuItem>
+                            <MenuItem value="November">November</MenuItem>
+                            <MenuItem value="December">December</MenuItem>
+                        </Select>
+                    </FormControl>
+
+                    <Button onClick={handleAddTask} className="checkListAddButton" variant="contained">Add task</Button>
+                </div>
+            </div>
+            <div className="checklistSeparator"/>
             <div className="checkListTasksContainer">
                 {
-                    checklist.map((task) => {
-                        return <ChecklistItem
-                            task={task}
-                            handleCheckbox={handleCheckbox}
-                            handleAddSubtask={handleAddSubtask}
-                            handleCheckSubtask={handleCheckSubtask}
-                            handleDeleteSubtask={handleDeleteSubtask}
-                            handleDeleteTask={handleDeleteTask}/>
-                    })
+                    checklist
+                        .sort(handleChecklistSort)
+                        .map((task) => {
+                            return <ChecklistItem
+                                task={task}
+                                handleCheckbox={handleCheckbox}
+                                handleAddSubtask={handleAddSubtask}
+                                handleCheckSubtask={handleCheckSubtask}
+                                handleDeleteSubtask={handleDeleteSubtask}
+                                handleDeleteTask={handleDeleteTask}/>
+                        })
                 }
             </div>
         </div>
