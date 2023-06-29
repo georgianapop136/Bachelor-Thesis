@@ -82,7 +82,7 @@ const RSVPModal = ({guest, userEmail, show, handleClose}) => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({guestId: guest.id, seatingId : seatId}),
+                body: JSON.stringify({guestId: guest.id, seatingId: seatId}),
             }).then(async (response) => {
                 if (response.status === 200) {
                     getSeats();
@@ -176,10 +176,12 @@ const RSVPModal = ({guest, userEmail, show, handleClose}) => {
                                                                 })
                                                         }
                                                     </div>
-                                                    <Button
-                                                        onClick={() => handleSelectSeat(table.id)}
-                                                        style={{width: "100px", height: "40px"}}
-                                                        variant="contained">Select</Button>
+                                                    <div className="rsvpSelectButton">
+                                                        <Button
+                                                            onClick={() => handleSelectSeat(table.id)}
+                                                            style={{width: "100px", height: "40px"}}
+                                                            variant="contained">Select</Button>
+                                                    </div>
                                                 </div>
 
                                             </div>

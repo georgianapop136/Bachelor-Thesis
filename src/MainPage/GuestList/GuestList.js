@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import {Button, TextField} from "@mui/material";
+import * as React from "react";
 
 const GuestList = () => {
     const [guestList, setGuestList] = useState([]);
@@ -97,7 +98,9 @@ const GuestList = () => {
 
     return (
         <div className="guestContainer">
-            <div>
+            <h1 className="guestTitles">Guest List</h1>
+            <div className="guestSeparator"/>
+            <div className="addGuestContainer">
                 <TextField
                 onChange={handleNameChange}
                 className="checkListTaskInput"
@@ -116,7 +119,7 @@ const GuestList = () => {
                     <tr>
                         <th>Nr.</th>
                         <th>Name</th>
-                        <th>Confirmed</th>
+                        <th>Coming</th>
                         <th>Assigned to table</th>
                         <th>Link</th>
                     </tr>

@@ -198,7 +198,7 @@ const Budget = () => {
 
 
     return (
-        <div className="budgetContainer ">
+        <div className="budgetContainer">
             <div className="budgetBanner">
                 <h1>My budget planner</h1>
                 <div className="budgetForm">

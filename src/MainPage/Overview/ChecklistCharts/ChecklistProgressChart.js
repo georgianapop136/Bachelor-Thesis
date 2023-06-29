@@ -26,16 +26,9 @@ const ChecklistProgressChart = ({checklist}) => {
                     backgroundPadding={10}
                     text={`${percentage}%`}
                     styles={buildStyles({
-                        // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                         strokeLinecap: 'butt',
-
-                        // Text size
                         textSize: '16px',
-
-                        // How long animation takes to go from one percentage to another, in seconds
                         pathTransitionDuration: 0.5,
-
-                        // Colors
                         pathColor: `#FFFFFF`,
                         textColor: '#FFFFFF',
                         trailColor: '#3C7391',

@@ -3,12 +3,32 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     padding: 40px;
 }
 
 .guestTable {
     height: 200px;
-    width: 800px;
+    width: 100%;
+    margin-top: 20px;
+}
 
+.guestTitles {
+    color: #3C7391;
+}
+
+.guestSeparator {
+    width: 100%;
+    border-top: 1px solid #3C7391;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.addGuestContainer {
+    display: flex;
+    gap: 20px;
+}
+
+.guestListAddButton {
+    height: 56px !important;
 }

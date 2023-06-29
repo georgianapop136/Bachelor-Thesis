@@ -8,11 +8,13 @@
     justify-content: center;
     gap: 40px;
     align-items: center;
+    background-color: #eaf5fa;
 }
 
 .rsvpModalSeatsContainer {
-    width: 900px !important;
-    height: 500px;
+    background-color: #eaf5fa;
+    padding: 20px;
+
 }
 
 .rsvpSeatingCardsList {
@@ -32,26 +34,28 @@
 
 .rsvpSeatingCardHeader {
     height: 55px;
-    background-color: #344E41;
+    background-color: #3C7391;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #DAD7CD;
+    color: #EAF5FA;
 }
 
 .rsvpSeatingCardBody {
-    background-color: #B5C49C;
+    background-color: white;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     height: 100%;
     display: flex;
     width: 100%;
-    padding: 10px;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    padding: 10px 10px 40px 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.09);
 }
 
 .rsvpSeatingCardBodyGuestList {
@@ -64,11 +68,16 @@
     gap: 20px;
 }
 
+.rsvpSelectButton {
+    position: absolute;
+    bottom: 10px;
+}
+
 .rsvpSeatingGuest {
     width: 170px;
     padding: 5px;
-    height: 40px;
-    background-color: lightgray;
+    height: 70px;
+    background-color: #CDE1EA;
     border-radius: 4px;
     display: flex;
     flex-direction: column;

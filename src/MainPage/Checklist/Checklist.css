@@ -1,11 +1,10 @@
 .checkListContainer {
-    padding: 30px;
+    padding: 40px;
     display: flex;
     justify-content: start;
     align-items: start;
     flex-direction: column;
     gap: 20px;
-    margin-left: 40px;
 }
 
 .addTaskWrapper {
@@ -148,7 +147,7 @@
     flex-direction: column;
     gap: 20px;
     margin-top: 20px;
-    color: #3C7391;
+    color: #000000;
 }
 
 .checklistDate {

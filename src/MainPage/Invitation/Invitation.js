@@ -7,7 +7,7 @@ import {DemoContainer} from "@mui/x-date-pickers/internals/demo";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from 'dayjs';
 import NoAnimationRSVP from "../../RSVP/NoAnimationRSVP";
-import flowers1 from "../../Pictures/theme/flowers1.jpeg";
+import picture1 from "../../Pictures/theme/theme1/picture1.jpg";
 import flowers2 from "../../Pictures/theme/flowers2.jpg";
 import flowers3 from "../../Pictures/theme/flowers3.jpeg";
 
@@ -85,77 +85,81 @@ const Invitation = () => {
 
     return (
         <div className="invitationContainer">
-            <div className="invitationBuilder">
-                <div className="invitationCustomizer">
-                    <div className="invitationCustomizerTitle">Build your own invitation here!</div>
-                    <TextField
-                        value={invitationName}
-                        onChange={handleCoupleNamesChanged}
-                        size="small"
-                        style={{width: "90%"}}
-                        id="outlined-basic"
-                        label="Names of the happy couple!"
-                    />
-                    <div className="invitationThemeContainer">
-                        <div
-                            className={`invitationThemeCard ${selectedTheme === 1 ? "invitationThemeSelected" : ""}`}
-                            onClick={() => setSelectedTheme(1)}
-                        >
-                            <img className="invitationThemeImg" src={flowers1}/>
-                            <div className="invitationThemeCardText">
-                                Flowers 1
+            <h1 className="invitationTitles">Build your own invitation</h1>
+            <div className="invitationSeparator"/>
+            <div className="invitationBuilderContainer">
+                <div className="invitationBuilder">
+                    <div className="invitationCustomizer">
+                        <div className="invitationCustomizerTitle">Build your own invitation here!</div>
+                        <TextField
+                            value={invitationName}
+                            onChange={handleCoupleNamesChanged}
+                            size="small"
+                            style={{width: "90%"}}
+                            id="outlined-basic"
+                            label="Names of the happy couple!"
+                        />
+                        <div className="invitationThemeContainer">
+                            <div
+                                className={`invitationThemeCard ${selectedTheme === 1 ? "invitationThemeSelected" : ""}`}
+                                onClick={() => setSelectedTheme(1)}
+                            >
+                                <img className="invitationThemeImg" src={picture1}/>
+                                <div className="invitationThemeCardText">
+                                    Theme 1
+                                </div>
+                            </div>
+                            <div
+                                className={`invitationThemeCard ${selectedTheme === 2 ? "invitationThemeSelected" : ""}`}
+                                onClick={() => setSelectedTheme(2)}>
+                                <img className="invitationThemeImg" src={flowers2}/>
+                                <div className="invitationThemeCardText">
+                                    Theme 2
+                                </div>
+                            </div>
+                            <div
+                                className={`invitationThemeCard ${selectedTheme === 3 ? "invitationThemeSelected" : ""}`}
+                                onClick={() => setSelectedTheme(3)}>
+                                <img className="invitationThemeImg" src={flowers3}/>
+                                <div className="invitationThemeCardText">
+                                    Theme 3
+                                </div>
                             </div>
                         </div>
-                        <div
-                            className={`invitationThemeCard ${selectedTheme === 2 ? "invitationThemeSelected" : ""}`}
-                            onClick={() => setSelectedTheme(2)}>
-                            <img className="invitationThemeImg" src={flowers2}/>
-                            <div className="invitationThemeCardText">
-                                Flowers 2
-                            </div>
-                        </div>
-                        <div
-                            className={`invitationThemeCard ${selectedTheme === 3 ? "invitationThemeSelected" : ""}`}
-                            onClick={() => setSelectedTheme(3)}>
-                            <img className="invitationThemeImg" src={flowers3}/>
-                            <div className="invitationThemeCardText">
-                                Flowers 3
-                            </div>
-                        </div>
+                        <TextField
+                            value={invitationDescription}
+                            onChange={handleDetails}
+                            sx={{
+                                width: {sm: 230},
+                                "& .MuiInputBase-root": {}
+                            }}
+                            style={{width: "90%"}}
+                            label="Say something to your guests!"
+                            multiline
+                            rows={3}
+                            inputProps={{style: {fontSize: 13}, maxLength: 250}}
+                        />
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DemoContainer components={['DateField']}>
+                                <DateField
+                                    label="Choose your magical date!"
+                                    value={invitationDate}
+                                    onChange={handleInvitationDate}
+                                    format="DD/MM/YYYY"
+                                />
+                            </DemoContainer>
+                        </LocalizationProvider>
+
+                        <Button onClick={handleUpdateInvitation} variant="contained">Save</Button>
+
                     </div>
-                    <TextField
-                        value={invitationDescription}
-                        onChange={handleDetails}
-                        sx={{
-                            width: {sm: 230},
-                            "& .MuiInputBase-root": {}
-                        }}
-                        style={{width: "90%"}}
-                        label="Say something to your guests!"
-                        multiline
-                        rows={3}
-                        inputProps={{style: {fontSize: 13}, maxLength: 250}}
-                    />
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DemoContainer components={['DateField']}>
-                            <DateField
-                                label="Choose your magical date!"
-                                value={invitationDate}
-                                onChange={handleInvitationDate}
-                                format="DD/MM/YYYY"
-                            />
-                        </DemoContainer>
-                    </LocalizationProvider>
-
-                    <Button onClick={handleUpdateInvitation} variant="contained">Save</Button>
-
-                </div>
-                <div className="invitationLook flowers1">
-                    <div className="invitationContent">
-                        <NoAnimationRSVP nameOfTheHappyCouple={invitationName}
-                                         selectedTheme={selectedTheme}
-                                         weddingDate={invitationDate.isValid() ? invitationDate.format('DD/MM/YYYY').toString() : ""}
-                                         weddingLocation={invitationDescription}/>
+                    <div className="invitationLook flowers1">
+                        <div className="invitationContent">
+                            <NoAnimationRSVP nameOfTheHappyCouple={invitationName}
+                                             selectedTheme={selectedTheme}
+                                             weddingDate={invitationDate.isValid() ? invitationDate.format('DD/MM/YYYY').toString() : ""}
+                                             weddingLocation={invitationDescription}/>
+                        </div>
                     </div>
                 </div>
             </div>

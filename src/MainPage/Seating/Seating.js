@@ -151,143 +151,143 @@ const Seating = () => {
 
     return (
         <DragDropContext onDragEnd={onDragEnd}>
-            <div className="seatingContainer">
-                <div className="seatingCardsWrapper">
-                    <div className="seatingCardsList">
-                        {seats
-                            .map((table, index) => {
-                                return (
-                                    <Droppable key={table.id} droppableId={table.id + ''}>
-                                        {(provided) => (
-                                            <div ref={provided.innerRef}
-                                                 {...provided.droppableProps}
-                                                 style={{
-                                                     ...provided.droppableProps.style,
-                                                     zIndex: -1,
-                                                 }}
-                                                 className="seatingCard">
-                                                <div className="seatingCardHeader">
-                                                    <div>{`${table.name}`}</div>
-                                                    <IconButton onClick={() => handleDeleteTable(table.id)}
-                                                                aria-label="delete"
-                                                                color="secondary">
-                                                        <DeleteIcon/>
-                                                    </IconButton>
-                                                </div>
-                                                <div className="seatingCardBody">
-                                                    {
-                                                        guestList
-                                                            .filter(item => item.seating_id === table.id)
-                                                            .map(item => {
-                                                                return <div className="seatingGuest">
-                                                                    <div className="seatingGuestTitleAndDelete">
-                                                                        <div className="seatingGuestText">
-                                                                            <PersonIcon/>
-                                                                            {item.name}
+            <div className="seatingPageWrapper">
+                <h1 className="guestTitles">Seating</h1>
+                <div className="guestSeparator"/>
+                <div className="seatingContainer">
+                    <div className="seatingCardsWrapper">
+                        <div className="seatingCardsList">
+                            {seats
+                                .map((table, index) => {
+                                    return (
+                                        <Droppable key={table.id} droppableId={table.id + ''}>
+                                            {(provided) => (
+                                                <div ref={provided.innerRef}
+                                                     {...provided.droppableProps}
+                                                     style={{
+                                                         ...provided.droppableProps.style,
+                                                         zIndex: -1,
+                                                     }}
+                                                     className="seatingCard">
+                                                    <div className="seatingCardHeader">
+                                                        <div>{`${table.name}`}</div>
+                                                        <IconButton onClick={() => handleDeleteTable(table.id)}
+                                                                    aria-label="delete"
+                                                                    color="secondary">
+                                                            <DeleteIcon/>
+                                                        </IconButton>
+                                                    </div>
+                                                    <div className="seatingCardBody">
+                                                        {
+                                                            guestList
+                                                                .filter(item => item.seating_id === table.id)
+                                                                .map(item => {
+                                                                    return <div className="seatingGuest">
+                                                                        <div className="seatingGuestTitleAndDelete">
+                                                                            <div className="seatingGuestText">
+                                                                                <PersonIcon/>
+                                                                                {item.name}
+                                                                            </div>
+                                                                            <div>
+                                                                                <IconButton
+                                                                                    onClick={() => removeGuestFromTable(item.id)}
+                                                                                    aria-label="delete"
+                                                                                    color="primary">
+                                                                                    <CloseIcon fontSize="small"/>
+                                                                                </IconButton>
+                                                                            </div>
                                                                         </div>
-                                                                        <div>
-                                                                            <IconButton
-                                                                                onClick={() => removeGuestFromTable(item.id)}
-                                                                                aria-label="delete"
-                                                                                color="primary">
-                                                                                <CloseIcon fontSize="small"/>
-                                                                            </IconButton>
-                                                                        </div>
+                                                                        <div
+                                                                            className="seatingGuestText">{item.confirmed ? "Confirmed" : "Awaiting confirmation"}</div>
                                                                     </div>
-                                                                    <div
-                                                                        className="seatingGuestText">{item.confirmed ? "Confirmed" : "Awaiting confirmation"}</div>
-                                                                </div>
-                                                            })
-                                                    }
+                                                                })
+                                                        }
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        )}
-                                    </Droppable>
-                                )
-                            })}
+                                            )}
+                                        </Droppable>
+                                    )
+                                })}
+                        </div>
+                        <div className="seatingAddTable"><Button onClick={handleShow} variant="outlined">Create new
+                            table</Button></div>
                     </div>
-                    <div className="seatingAddTable"><Button onClick={handleShow} variant="outlined">Create new
-                        table</Button></div>
-                </div>
+                    <div style={{width: "25%"}}>
+                        <Droppable droppableId="list">
+                            {(provided) => (
+                                <div className="seatingGuestListContainer"
+                                     ref={provided.innerRef} {...provided.droppableProps}>
+                                    <div className="seatingGuestListHeader">
+                                        Guest List
+                                    </div>
+                                    <div className="seatingGuestListBody">
+                                        <List>
+                                            {guestList
+                                                .filter(item => !item.seating_id)
+                                                .map((guest, index) => (
+                                                    <Draggable key={guest.id} draggableId={guest.id + ''} index={index}>
+                                                        {(draggableProvided) => (
+                                                            <div
+                                                                ref={draggableProvided.innerRef}
+                                                                {...draggableProvided.draggableProps}
+                                                                {...draggableProvided.dragHandleProps}
+                                                                style={{
+                                                                    ...draggableProvided.draggableProps.style,
+                                                                    zIndex: 9999, // Modify the zIndex values as per your requirements
+                                                                }}
+                                                            >
+                                                                <ListItem disablePadding>
+                                                                    <ListItemButton>
+                                                                        <ListItemIcon>
+                                                                            <PersonIcon/>
+                                                                        </ListItemIcon>
+                                                                        <ListItemText primary={guest.name}/>
+                                                                    </ListItemButton>
+                                                                </ListItem>
+                                                            </div>
+                                                        )}
+                                                    </Draggable>
+                                                ))}
+                                        </List>
+                                    </div>
 
-
-                <div>
-                    <Droppable droppableId="list">
-                        {(provided) => (
-                            <div className="seatingGuestListContainer"
-                                 ref={provided.innerRef} {...provided.droppableProps}>
-                                <div className="seatingGuestListHeader">
-                                    Guest List
                                 </div>
-                                <div className="seatingGuestListBody">
-                                    <List>
-                                        {guestList
-                                            .filter(item => !item.seating_id)
-                                            .map((guest, index) => (
-                                                <Draggable key={guest.id} draggableId={guest.id + ''} index={index}>
-                                                    {(draggableProvided) => (
-                                                        <div
-                                                            ref={draggableProvided.innerRef}
-                                                            {...draggableProvided.draggableProps}
-                                                            {...draggableProvided.dragHandleProps}
-                                                            style={{
-                                                                ...draggableProvided.draggableProps.style,
-                                                                zIndex: 9999, // Modify the zIndex values as per your requirements
-                                                            }}
-                                                        >
-                                                            <ListItem disablePadding>
-                                                                <ListItemButton>
-                                                                    <ListItemIcon>
-                                                                        <PersonIcon/>
-                                                                    </ListItemIcon>
-                                                                    <ListItemText primary={guest.name}/>
-                                                                </ListItemButton>
-                                                            </ListItem>
-                                                        </div>
-                                                    )}
-                                                </Draggable>
-                                            ))}
-                                    </List>
-                                </div>
-
-                            </div>
-                        )}
-                    </Droppable>
+                            )}
+                        </Droppable>
+                    </div>
+                    <Modal show={show} onHide={handleClose}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Create new table</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Form>
+                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                    <Form.Label>Table name:</Form.Label>
+                                    <Form.Control
+                                        // type=""
+                                        // placeholder=""
+                                        autoFocus
+                                        animation
+                                        centered
+                                        value={table}
+                                        onChange={(event) => setTable(event.target.value)}
+                                    />
+                                </Form.Group>
+                            </Form>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="primary" onClick={() => {
+                                handleAddTable()
+                                handleClose()
+                            }}>
+                                Save
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
                 </div>
-
-                <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Create new table</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <Form>
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                <Form.Label>Table name:</Form.Label>
-                                <Form.Control
-                                    // type=""
-                                    // placeholder=""
-                                    autoFocus
-                                    animation
-                                    centered
-                                    value={table}
-                                    onChange={(event) => setTable(event.target.value)}
-                                />
-                            </Form.Group>
-                        </Form>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="primary" onClick={() => {
-                            handleAddTable()
-                            handleClose()
-                        }}>
-                            Save
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
             </div>
+
         </DragDropContext>
-
-
     );
 
 }

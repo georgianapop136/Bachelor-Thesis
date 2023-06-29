@@ -1,11 +1,29 @@
 .invitationContainer {
     display: flex;
     justify-content: center;
-    height: 532px;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.invitationTitles {
+    color: #3C7391;
+}
+
+.invitationSeparator {
+    width: 100%;
+    border-top: 1px solid #3C7391;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.invitationBuilderContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 .invitationBuilder {
-    width: 1100px;
+    width: 1400px;
     height: 550px;
     display: flex;
     background-color: white;

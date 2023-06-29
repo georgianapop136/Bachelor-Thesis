@@ -5,7 +5,7 @@
 }
 
 .overviewContainer {
-    padding: 30px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     gap: 15px;
