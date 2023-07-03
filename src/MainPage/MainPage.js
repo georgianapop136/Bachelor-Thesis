@@ -13,11 +13,9 @@ import OverviewImg from "../Pictures/OverviewImg.png";
 import GuestlistImg from "../Pictures/GuestlistImg.png";
 import Seating from "./Seating/Seating";
 import Overview from "./Overview/Overview";
-import {useNavigate} from "react-router";
 import logo from "../Pictures/Beige Minimal Personal Make Up Artist Logo.png";
 
 const MainPage = () => {
-    const navigate = useNavigate();
     const [selectedOption, setSelectedOption] = useState(1);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 

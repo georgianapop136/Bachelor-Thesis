@@ -232,21 +232,12 @@
     top: -100px;
     left: -80px;
 }
-/*.authFlower2 {*/
-/*    position: absolute;*/
-/*    right: 0;*/
-/*    top: 0;*/
-/*}*/
+
 .authFlower3 {
     position: absolute;
     bottom: -100px;
     right: -100px;
 }
-/*.authFlower4 {*/
-/*    bottom: 0;*/
-/*    right: 0;*/
-/*    position: absolute;*/
-/*}*/
 
 .authImgStyle {
     height: 250px;

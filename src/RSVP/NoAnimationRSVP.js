@@ -1,6 +1,6 @@
 import "./NoAnimationRSVP.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import theme1Photo from "../Pictures/theme/theme1/picture2.png";
+import theme1Photo from "../Pictures/theme/theme1/picture2.jpg";
 import theme2Photo from "../Pictures/theme/theme2/picture2.jpg";
 import theme3Photo from "../Pictures/theme/theme3/picture2.jpg";
 

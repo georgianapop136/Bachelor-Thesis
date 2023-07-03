@@ -15,6 +15,7 @@ const mockCategory = {
         }
     ]
 }
+
 test("Category name is in the page", () => {
     render(<Category category={mockCategory}/>);
 

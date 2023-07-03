@@ -8,8 +8,8 @@ import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from 'dayjs';
 import NoAnimationRSVP from "../../RSVP/NoAnimationRSVP";
 import picture1 from "../../Pictures/theme/theme1/picture1.jpg";
-import flowers2 from "../../Pictures/theme/flowers2.jpg";
-import flowers3 from "../../Pictures/theme/flowers3.jpeg";
+import picture2 from "../../Pictures/theme/theme2/picture1.jpg";
+import picture3 from "../../Pictures/theme/theme3/picture1.jpg";
 
 const Invitation = () => {
     const [invitationId, setInvitationId] = useState(undefined);
@@ -112,7 +112,7 @@ const Invitation = () => {
                             <div
                                 className={`invitationThemeCard ${selectedTheme === 2 ? "invitationThemeSelected" : ""}`}
                                 onClick={() => setSelectedTheme(2)}>
-                                <img className="invitationThemeImg" src={flowers2}/>
+                                <img className="invitationThemeImg" src={picture2}/>
                                 <div className="invitationThemeCardText">
                                     Theme 2
                                 </div>
@@ -120,7 +120,7 @@ const Invitation = () => {
                             <div
                                 className={`invitationThemeCard ${selectedTheme === 3 ? "invitationThemeSelected" : ""}`}
                                 onClick={() => setSelectedTheme(3)}>
-                                <img className="invitationThemeImg" src={flowers3}/>
+                                <img className="invitationThemeImg" src={picture3}/>
                                 <div className="invitationThemeCardText">
                                     Theme 3
                                 </div>
