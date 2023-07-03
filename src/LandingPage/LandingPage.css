@@ -3,6 +3,10 @@
     height: 100vh;
     overflow: hidden;
     font-family: 'Alegreya', serif;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
 }
 
 .landingPageJoin{
@@ -15,6 +19,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 30px;
 }
 
 .customCard-wrap {
@@ -179,6 +184,13 @@
 }
 
 .logo{
-    height: 430px;
-    width: 550px;
+   height: 110px;
+}
+.lineStyle{
+    position: absolute;
+    margin-top: 100px;
+}
+.lineLook{
+    width: 1825px;
+
 }

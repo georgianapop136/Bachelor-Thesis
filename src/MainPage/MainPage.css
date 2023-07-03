@@ -10,12 +10,9 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: start;
     background-color: #ffffff;
     transition: width 0.5s ease-in-out;
-    /*border-right: 1px solid lightgray;*/
-    /*border-bottom-right-radius: 9px;*/
-    /*border-top-right-radius: 9px;*/
     box-shadow: 0 2px 5px rgba(0,0,0,.09);
     z-index: 1000;
 }
@@ -39,6 +36,8 @@
     background-color: #FFFFFF;
     height: 75px;
     box-shadow: 0 2px 5px rgba(0,0,0,.09);
+    display: flex;
+    justify-content: space-between;
 }
 
 .ham {
@@ -87,7 +86,7 @@
 .mainPageSvg {
     position: absolute;
     right: 5px;
-    top: 59px;
+    top: 10px;
 }
 
 .imgStyles {
@@ -110,7 +109,7 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
-    margin-top: 80px;
+    margin-top: 130px;
     width: 100%;
 }
 
@@ -142,12 +141,13 @@
     justify-content: center;
 }
 
-.navigationItem {
-
-}
 
 .navigationItemHidden {
     display: none
+}
+
+.logoStyle{
+    height: 70px;
 }
 
 

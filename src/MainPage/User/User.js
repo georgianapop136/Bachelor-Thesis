@@ -35,13 +35,16 @@ const AccountMenu = () => {
                 <Tooltip title="Account settings">
                     <IconButton
                         onClick={handleClick}
+                        style={{backgroundColor: "#3C7391"}}
                         size="small"
                         sx={{ml: 2}}
                         aria-controls={open ? 'account-menu' : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                     >
-                        <Avatar sx={{
+                        <Avatar
+                            style={{color: "white", backgroundColor: "#3C7391"}}
+                            sx={{
                             width: 40,
                             height: 40
                         }}>{sessionStorage.getItem("loggedInUser")?.slice(0, 2)?.toUpperCase() || "G"}</Avatar>

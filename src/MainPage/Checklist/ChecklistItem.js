@@ -61,15 +61,19 @@ const ChecklistItem = ({
             <div className={`checkListTaskStyle ${isOpen ? '' : 'withBorderBottom'}`}>
                 <div id={"subtaskPercentage_" + task.id}
                      className={`subtaskPercentageStyle ${isCompleted ? 'completedChecklist withBorderTopRight' : ''} ${!isOpen && isCompleted ? 'withBorderBottomRight' : ''}`}/>
-                <FormControlLabel control={
-                    <Checkbox
-                        onClick={() => handleCheckbox(task.id, !task.checked)}
-                        checked={task.checked}
-                        style={{ color: '#3C7391' }}
-                    />}
-                                  label={<div className={`${isCompleted ? 'completedTextDecoration' : ''}`}>
-                                      {task.name}
-                                  </div>}/>
+                <FormControlLabel
+                    style={{width: "60%"}}
+                    control={
+                        <Checkbox
+                            onClick={() => handleCheckbox(task.id, !task.checked)}
+                            checked={task.checked}
+                            style={{color: '#3C7391'}}
+                        />
+                    }
+                    label={<div className={`${isCompleted ? 'completedTextDecoration' : ''}`}>
+                        {task.name}
+                    </div>}
+                />
                 <div className="checklistDate">{task.month}</div>
                 <div className="checklistActionContainer">
                     <div>
@@ -77,7 +81,7 @@ const ChecklistItem = ({
                             aria-controls={open ? 'long-menu' : undefined}
                             aria-expanded={open ? 'true' : undefined}
                             aria-haspopup="true"
-                            style={{ color: '#3C7391' }}
+                            style={{color: '#3C7391'}}
                             onClick={handleClick}
                         >
                             <MoreVertIcon/>

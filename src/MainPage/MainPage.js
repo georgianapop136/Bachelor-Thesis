@@ -14,6 +14,7 @@ import GuestlistImg from "../Pictures/GuestlistImg.png";
 import Seating from "./Seating/Seating";
 import Overview from "./Overview/Overview";
 import {useNavigate} from "react-router";
+import logo from "../Pictures/Beige Minimal Personal Make Up Artist Logo.png";
 
 const MainPage = () => {
     const navigate = useNavigate();
@@ -122,7 +123,11 @@ const MainPage = () => {
 
             </div>
             <div className="mainPageContent">
-                <div className="mainPageHeader"><User/></div>
+                <div className="mainPageHeader">
+                    <div></div>
+                    <div> <img className="logoStyle" src={logo}/></div>
+                    <User/>
+                </div>
                 {getContent()}
             </div>
         </div>
